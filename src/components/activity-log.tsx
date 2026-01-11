@@ -41,18 +41,21 @@ export function ActivityLog() {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Auto-expand on mount for a premium entrance effect
+  // Auto-expand on mount for a premium entrance effect (Desktop only)
   useEffect(() => {
-    const timer = setTimeout(() => setIsExpanded(true), 1500);
-    return () => clearTimeout(timer);
+    // Only auto-expand on larger screens to avoid blocking mobile view
+    if (window.innerWidth >= 768) {
+      const timer = setTimeout(() => setIsExpanded(true), 1500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
-    <div className="pointer-events-none fixed right-6 bottom-0 z-50 flex flex-col items-end">
+    <div className="pointer-events-none fixed right-6 bottom-0 z-50 hidden flex-col items-end md:flex">
       {/* Main Drawer Container - FIXED WIDTH for perfect symmetry */}
       <motion.div
         initial={false}
-        className="bg-background/90 border-border/50 pointer-events-auto w-[240px] overflow-hidden rounded-t-lg border-x border-t shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] backdrop-blur-xl md:w-[280px]"
+        className="bg-background/90 border-border/50 pointer-events-auto w-[300px] overflow-hidden rounded-t-lg border-x border-t shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.3)] backdrop-blur-xl md:w-[320px]"
       >
         {/* Unified Header Tool-bar */}
         <div

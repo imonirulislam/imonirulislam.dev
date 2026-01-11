@@ -145,6 +145,9 @@ export function Experience() {
         </div>
 
         <div className="relative space-y-12">
+          {/* Timeline Spine */}
+          <div className="from-border/0 via-border/20 to-border/0 absolute top-0 -bottom-12 left-0 -z-10 w-px -translate-x-1/2 bg-gradient-to-b md:left-[124px]" />
+
           <AnimatePresence mode="wait">
             {isLoading ? (
               <motion.div
@@ -189,7 +192,8 @@ export function Experience() {
                       <DialogTrigger asChild>
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-50px" }}
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.4, delay: index * 0.1 }}
                           className="group/item relative cursor-pointer pl-8 md:pl-0"

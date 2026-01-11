@@ -2,8 +2,16 @@
 
 import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
-import { MoveUpRight, Globe } from "lucide-react";
+import { MoveUpRight, Globe, Menu } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -119,6 +127,92 @@ export function Navbar() {
             >
               <MoveUpRight className="h-3 w-3" />
             </Link>
+
+            {/* Mobile Menu */}
+            <nav className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 rounded-sm"
+                  >
+                    <Menu className="h-4 w-4" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent className="border-border/50 bg-background/95 font-mono backdrop-blur-xl">
+                  <div className="mt-8 flex flex-col gap-6">
+                    <div className="border-border/20 border-b pb-4">
+                      <SheetTitle className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
+                        Navigation_Module
+                      </SheetTitle>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      {navItems.map((item, i) => (
+                        <SheetClose key={item.name} asChild>
+                          <Link
+                            href={item.href}
+                            onClick={(e) => handleScroll(e, item.href)}
+                            className="bg-secondary/10 hover:bg-secondary/30 hover:text-primary text-muted-foreground hover:border-primary/20 flex items-center justify-between rounded-md border border-transparent px-4 py-3 text-sm tracking-widest uppercase transition-all"
+                          >
+                            <span>{item.name}</span>
+                            <span className="text-muted-foreground/30 text-[10px]">
+                              0{i + 1}
+                            </span>
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+
+                    <div className="bg-secondary/5 border-border/30 mt-auto rounded-lg border p-4">
+                      <div className="mb-3 flex items-center gap-2">
+                        <div className="flex items-center gap-1.5">
+                          <motion.div
+                            animate={{ opacity: [1, 0.5, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_rgba(16,185,129,0.5)] dark:bg-emerald-500"
+                          />
+                          <div className="flex h-2 items-center gap-1">
+                            {[...Array(4)].map((_, i) => (
+                              <motion.div
+                                key={i}
+                                animate={{
+                                  height: ["20%", "100%", "20%"],
+                                }}
+                                transition={{
+                                  duration: 1,
+                                  repeat: Infinity,
+                                  delay: i * 0.15,
+                                  ease: "easeInOut",
+                                }}
+                                className="w-0.5 rounded-full bg-emerald-600 dark:bg-emerald-500"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        <span className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase">
+                          ONLINE
+                        </span>
+                      </div>
+                      <div className="text-muted-foreground/60 space-y-2 text-[10px] tracking-wider uppercase">
+                        <div className="flex justify-between">
+                          <span>Node:</span>
+                          <span className="text-foreground font-mono">
+                            Active
+                          </span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Region:</span>
+                          <span className="text-foreground font-mono">
+                            BD-DHK-01
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </nav>
           </div>
         </div>
       </div>

@@ -121,14 +121,16 @@ export function TechStack() {
             <motion.div
               key="content"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
               className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
             >
               {techCategories.map((category, idx) => (
                 <motion.div
                   key={category.title}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   className="group relative"
                 >

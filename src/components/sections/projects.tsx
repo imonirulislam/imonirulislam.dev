@@ -489,13 +489,23 @@ export function Projects() {
             ) : (
               <motion.div
                 key="grid-content"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, staggerChildren: 0.1 }}
                 className="col-span-full grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
               >
                 <AnimatePresence mode="popLayout">
-                  {filteredProjects.map((project) => (
-                    <ProjectItem key={project.title} project={project} />
+                  {filteredProjects.map((project, index) => (
+                    <motion.div
+                      key={project.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <ProjectItem project={project} />
+                    </motion.div>
                   ))}
                 </AnimatePresence>
               </motion.div>
