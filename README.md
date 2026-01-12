@@ -69,12 +69,24 @@ bunx prek install
 
 ## 🚀 DEPLOYMENT
 
+````bash
+### Cloudflare Pages
+This project is optimized for Cloudflare Pages (Static Export).
+
 ```bash
-# Production Build
-npm run build
-npm run start
+# 1. Build the project (outputs to /out)
+bun run pages:build
+
+# 2. Preview locally with Wrangler
+bunx wrangler pages dev out
+
+# 3. Deploy to Cloudflare
+bunx wrangler pages deploy out --project-name imonirulislam-dev
+````
+
 ```
 
 ---
 
 _© 2026 Monirul Islam. All systems nominal._
+```
