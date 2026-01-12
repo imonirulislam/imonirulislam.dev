@@ -166,6 +166,7 @@ function ProjectItem({ project }: { project: (typeof projects)[0] }) {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.2 }}
+          className="h-full"
         >
           <Card className="bg-secondary/10 border-border/50 hover:bg-secondary/20 hover:border-primary/50 group flex h-full cursor-pointer flex-col overflow-hidden border p-0 shadow-none backdrop-blur-sm transition-all duration-300">
             <div className="border-border/20 relative h-40 overflow-hidden border-b">
@@ -417,8 +418,8 @@ export function Projects() {
     filter === "All"
       ? projects
       : projects.filter(
-          (p) => p.category === filter || p.tech.includes(filter)
-        );
+        (p) => p.category === filter || p.tech.includes(filter)
+      );
 
   return (
     <section id="projects" className="relative scroll-mt-20 py-24">
@@ -447,11 +448,10 @@ export function Projects() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`border px-3 py-1 font-mono text-[10px] transition-all duration-200 ${
-                  filter === cat
+                className={`border px-3 py-1 font-mono text-[10px] transition-all duration-200 ${filter === cat
                     ? "bg-primary text-primary-foreground border-primary"
                     : "bg-secondary/20 text-muted-foreground border-border/50 hover:border-primary/50"
-                }`}
+                  }`}
               >
                 {cat.toUpperCase()}
               </button>
@@ -503,6 +503,7 @@ export function Projects() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
+                      className="h-full"
                     >
                       <ProjectItem project={project} />
                     </motion.div>
