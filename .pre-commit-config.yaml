@@ -1,0 +1,21 @@
+repos:
+  - repo: local
+    hooks:
+      - id: format
+        name: Format (Fix)
+        entry: bun run format:fix
+        language: system
+        pass_filenames: false
+        types: [file]
+      - id: lint
+        name: Lint
+        entry: bun run lint
+        language: system
+        pass_filenames: false
+        types: [file]
+      - id: type-check
+        name: Type Check
+        entry: bun run type-check
+        language: system
+        pass_filenames: false
+        files: \.(ts|tsx)$

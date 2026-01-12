@@ -1,6 +1,7 @@
 {
   "name": "imonirulislam.dev",
   "version": "0.1.0",
+  "description": "A high-performance personal portfolio engineered with a server console / system HUD aesthetic. Built with Next.js, Tailwind CSS, and Framer Motion.",
   "private": true,
   "engines": {
     "node": ">=22.17.0"
@@ -12,6 +13,7 @@
     "lint": "eslint",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
+    "type-check": "tsc --noEmit",
     "pages:build": "next build"
   },
   "dependencies": {
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
+    "@j178/prek": "^0.2.27",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -46,9 +49,5 @@
     "tailwindcss": "^4",
     "tw-animate-css": "^1.4.0",
     "typescript": "^5"
-  },
-  "optionalDependencies": {
-    "@tailwindcss/oxide-linux-x64-gnu": "^4.1.18",
-    "lightningcss-linux-x64-gnu": "^1.30.2"
   }
 }

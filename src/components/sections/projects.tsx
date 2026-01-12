@@ -418,8 +418,8 @@ export function Projects() {
     filter === "All"
       ? projects
       : projects.filter(
-        (p) => p.category === filter || p.tech.includes(filter)
-      );
+          (p) => p.category === filter || p.tech.includes(filter)
+        );
 
   return (
     <section id="projects" className="relative scroll-mt-20 py-24">
@@ -448,10 +448,11 @@ export function Projects() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`border px-3 py-1 font-mono text-[10px] transition-all duration-200 ${filter === cat
+                className={`border px-3 py-1 font-mono text-[10px] transition-all duration-200 ${
+                  filter === cat
                     ? "bg-primary text-primary-foreground border-primary"
                     : "bg-secondary/20 text-muted-foreground border-border/50 hover:border-primary/50"
-                  }`}
+                }`}
               >
                 {cat.toUpperCase()}
               </button>

@@ -41,8 +41,31 @@ npm run dev
 - **Animation**: [Framer Motion](https://www.framer.com/motion/)
 - **UI Primitives**: [Shadcn UI](https://ui.shadcn.com/) (Radix)
 - **Quality Control**: ESLint 9 (Flat Config) + Prettier
+- **Automation**: [Prek](https://prek.j178.dev/) (Git Hooks)
 
 ---
+
+## 🛠️ AUTOMATION
+
+This project uses `prek` to enforce code quality before every commit.
+
+### Pre-commit Hooks
+
+The following checks run automatically when you commit:
+
+1.  **Format**: Runs `bun run format:fix` to auto-fix code style issues.
+2.  **Lint**: Runs `bun run lint` to check for errors.
+3.  **Type Check**: Runs `bun run type-check` to ensure type safety.
+
+### Manual Commands
+
+```bash
+# Run hooks manually on all files
+bunx prek run --all-files
+
+# Update hook configuration
+bunx prek install
+```
 
 ## 🚀 DEPLOYMENT
 
