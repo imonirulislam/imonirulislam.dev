@@ -14,7 +14,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const techCategories = [
   {
-    title: "Back-end Core",
+    title: "Back End",
     icon: Code2,
     items: [
       { name: "Node.js", version: "v20.x" },
