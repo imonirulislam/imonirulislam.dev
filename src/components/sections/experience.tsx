@@ -54,12 +54,33 @@ interface CompanyExperience {
 
 const experiences: CompanyExperience[] = [
   {
-    company: "Stealth Startup / Independent",
-    totalPeriod: "Jan 2024 - Present",
+    company: "Vivasoft Limited",
+    totalPeriod: "Jan 2023 - Present",
     roles: [
       {
-        title: "Systems & Bare Metal Specialist",
+        title: "Senior Software Engineer L-II",
         period: "Jan 2024 - Present",
+        description:
+          "Deep-diving into bare metal server management, networking, and low-level system optimizations.",
+        longDescription:
+          "Currently spearheading infrastructure evolution by moving beyond virtualization into raw hardware orchestration. This involves custom PXE boot setups, automated firmware management, and optimizing networking stacks for high-throughput data pipelines. Working extensively with Linux kernel tuning and low-latency communication protocols.",
+        tags: ["Linux Kernel", "PXE", "Networking", "Hardware"],
+        icon: Cpu,
+        logs: [
+          "Optimized kernel parameters for 20% latency reduction.",
+          "Provisioning automated bare-metal internal cloud.",
+          "Maintaining 99.99% uptime for core infrastructure nodes.",
+        ],
+        documents: [
+          {
+            name: "Systems_Architecture_Diagram.pdf",
+            url: "#",
+          },
+        ],
+      },
+      {
+        title: "Senior Software Engineer L-I",
+        period: "Jan 2023 - Jan 2024",
         description:
           "Deep-diving into bare metal server management, networking, and low-level system optimizations.",
         longDescription:
@@ -81,22 +102,45 @@ const experiences: CompanyExperience[] = [
     ],
   },
   {
-    company: "CloudScale Solutions",
-    totalPeriod: "Mar 2021 - Dec 2023",
+    company: "APSIS",
+    totalPeriod: "NOV 2019 - DEC 2022",
     roles: [
       {
-        title: "Senior DevOps Engineer",
-        period: "Jan 2023 - Dec 2023",
+        title: "Senior Software Engineer",
+        period: "Apr 2022 - Dec 2022",
         description:
-          "Led the infrastructure team, focusing on cost optimization and architectural scalability.",
+          "Led backend development and system architecture, focusing on scalable Node.js services and team mentorship.",
         longDescription:
-          "Promoted to lead the infrastructure team. Architected multi-region AWS footprint with Terraform and reduced cloud spends by 35% through resource auditing.",
-        tags: ["AWS", "Terraform", "Team Lead", "FinOps"],
+          "Architected and implemented core backend services using NestJs, including robust authentication with JWT and Azure AD. Designed dynamic notification systems with WebSockets and Redis, managed distributed queues, and established comprehensive logging and audit trails. Mentored the team in adopting modern Node.js practices and optimized system performance.",
+        tags: [
+          "Laravel",
+          "Docker",
+          "Node.Js",
+          "WebSocket",
+          "Redis",
+          "AWS",
+          "Terraform",
+          "Team Lead",
+          "FinOps",
+        ],
         icon: Cloud,
         logs: [
-          "Architected multi-region AWS footprint.",
-          "Reduced cloud spends by 35%.",
-          "Mentored junior DevOps engineers.",
+          "Build backend services supporting multiple business functions and heavy daily usage.",
+          "Working closely with product owner for Banking, Supply chain ERP solutions.",
+          "Implementing Core application setup in NestJs.",
+          "Implementing an Authentication system with JWT.",
+          "Thirparty Auth Implementation with Azure AD.",
+          "Design & Implementation of User behavior into the system.",
+          "Design & Implementation of the application log.",
+          "API documentation implementation with Swagger/Open API.",
+          "Design & Implementation of DB logs.",
+          "Working with Socket.io and Websocket for a dynamic notification system.",
+          "Redis PUB/SUB services.",
+          "Distributed Queue management system for various work.",
+          "Implentation of Audit Trail Services.",
+          "Implementing a Custom & configurable file management system for the application.",
+          "Reviewing codes and providing assistance to group members who have very little expertise in NestJs.",
+          "Training employees on how to use the new system and providing ongoing support for them as issues arise.",
         ],
         documents: [
           {
@@ -110,104 +154,104 @@ const experiences: CompanyExperience[] = [
         ],
       },
       {
-        title: "DevOps & Infrastructure Engineer",
-        period: "Mar 2021 - Dec 2022",
+        title: "Associate Software Engineer",
+        period: "Nov 2019 - Apr 2022",
         description:
-          "Managed complex infrastructures, CI/CD pipelines, and data warehousing solutions.",
+          "Developed and maintained enterprise ERP solutions using PHP/Laravel ecosystem.",
         longDescription:
-          "Managed a large-scale AWS environment supporting over 50 microservices. Focused on Infrastructure as Code (Terraform) and robust CI/CD practices. Handled migration of legacy data systems to modern Redshift clusters.",
-        tags: ["Kubernetes", "CI/CD", "Redshift"],
+          "Played a key role in the full lifecycle development of complex ERP modules including Accounts, Procurement, and Sales. Specialized in creating detailed accounting reports, optimizing database performance, and collaborating with cross-functional teams to resolve production issues and ensure system stability.",
+        tags: ["PHP", "Laravel", "Lumen", "MySql"],
         icon: Cloud,
         logs: [
-          "Managed 50+ microservices in Kubernetes EKS.",
-          "Implemented ArgoCD for GitOps workflows.",
-          "Migrated legacy DBs to Redshift clusters.",
+          "Design, develop, and maintain enterprise resource planning (ERP) software solutions.",
+          "Write well-designed, testable, and efficient code based on specifications.",
+          "Integrate ERP software with third-party applications as needed.",
+          "Assist in the creation of technical documentation for ERP software solutions.",
+          "Collaborate with team members to identify and resolve defects in a timely manner.",
+          "Monitor ERP software performance in production and address any issues that arise.",
+          "Improving Accounting Reports (Ex: Profit Loss, Balance Sheet, Account Statement, Trial Balance) functionalities based on business requirements.",
+          "Working with a different part of the ERP module including Accounts, Procurement, Sales, and Fixed Asset.",
+          "Stay up-to-date on the latest industry trends and best practices.",
         ],
       },
     ],
   },
   {
-    company: "FinTech Innovations",
-    totalPeriod: "Jun 2019 - Feb 2021",
+    company: "UniSearch / Independent",
+    totalPeriod: "Dec 2021 - Mar 2022",
     roles: [
       {
-        title: "Full Stack Engineer (Node.js)",
-        period: "Jun 2019 - Feb 2021",
+        title: "Backend Api Developer",
+        period: "Dec 2021 - Mar 2022",
         description:
-          "Transitioned to the Node.js ecosystem, focusing on high-performance APIs and asynchronous architectures.",
+          "Engineered high-performance backend systems for search accuracy, real-time features, and platform scalability.",
         longDescription:
-          "Key player in transitioning the company's core product from a PHP monolith to a distributed Node.js microservices architecture. Designed and implemented critical services for real-time order processing and user notification systems using WebSockets and Redis.",
-        tags: ["Node.js", "Redis", "Microservices", "TypeScript"],
+          "Spearheaded the development of core EduTech features including dynamic page generation, virtual office integration, and appointment booking systems across timezones. Optimized platform performance through Redis caching and improved student-university matching algorithms while integrating external services like Weather APIs.",
+        tags: [
+          "Node.js",
+          "Redis",
+          "TypeScript",
+          "Database Design",
+          "PostgreSql",
+        ],
         icon: Database,
         logs: [
-          "Refactored monolith PHP to Node.js microservices.",
-          "Implemented real-time data streaming via WebSockets.",
-          "Integrated complex third-party ETL pipelines.",
+          "Works closely with the Product Owner, design solutions, and write user stories based on business requirements.",
+          "Help train and mentor other data/integration developers.",
+          "Design & architect Ed-tech solution backend application(Built-in NestJs).",
+          "Integrating chat & messaging system.",
+          "Improving search accuracy for course search for the application.",
+          "Adding Dynamic page generation for the application.",
+          "Integrating Virtual office for Counsellor & Student.",
+          "Booking appointment implementation (Considering various timezone constraints).",
+          "Online Learning Management for prospective students.",
+          "Caching data into caching DB (REDIS).",
+          "Improving accuracy for matching student profiles with matched Universities & Courses.",
+          "Integrating Weather APIs into system.",
         ],
       },
     ],
   },
   {
-    company: "Creative Web Agency",
-    totalPeriod: "Jan 2017 - May 2019",
+    company: "Nenorex Technologies / Contractual",
+    totalPeriod: "Jan 2018 - Jan 2019",
     roles: [
       {
-        title: "PHP Developer",
-        period: "Jan 2017 - May 2019",
+        title: "Software Developer",
+        period: "Jan 2018 - Jan 2019",
         description:
-          "Started my journey building dynamic web applications with PHP and mastering back-end fundamentals.",
+          "Built and optimized HRM solutions with a focus on automation and real-time tracking.",
         longDescription:
-          "Foundation years spent building robust web applications for news portals and large-scale blog platforms. Mastered MySQL optimization and server-side rendering patterns before the modern JS era.",
-        tags: ["PHP", "MySQL", "jQuery", "Apache"],
+          "Focused on developing comprehensive Human Resource Management (HRM) systems. Automated critical workflows including attendance device integration, real-time attendance capture, and payroll processing, significantly improving operational efficiency for client businesses.",
+        tags: ["PHP", "MySQL", "jQuery", "Laravel", "CodeIgniter"],
         icon: Terminal,
         logs: [
-          "Developed custom CMS for high-traffic news portals.",
-          "Optimized SQL queries for improved performance.",
-          "Managed legacy VPS deployments and manual backups.",
+          "Working with HRM solutions.",
+          "Automating attendance devices with the HRM application.",
+          "Improve attendance capture in real-time with HRM application.",
+          "Improving Payroll automation in the HRM application.",
         ],
       },
     ],
   },
   {
-    company: "Freelance",
-    totalPeriod: "Jun 2015 - Dec 2016",
+    company: "CAPM Company Ltd.",
+    totalPeriod: "May 2017 - Dec 2017",
     isExtended: true,
     roles: [
       {
-        title: "Junior Web Developer",
-        period: "Jun 2015 - Dec 2016",
+        title: "Software Developer",
+        period: "May 2017 - Dec 2017",
         description:
-          "Learned the ropes of web development, working with early CMS systems and basic jQuery/CSS setups.",
+          "Developed financial portfolio management applications and corporate web solutions.",
         longDescription:
-          "Initial entry into the professional world, maintaining a wide variety of client sites and learning best practices in collaborative software development and client communication.",
-        tags: ["HTML", "CSS", "WordPress", "Hosting"],
+          "Built and maintained the company's corporate website using CodeIgniter and developed a specialized Portfolio Management Application for stock exchange operations. Gained valuable experience working with Oracle databases and financial data structures.",
+        tags: ["CodeIgniter", "Oracle", "HTML", "CSS"],
         icon: Briefcase,
         logs: [
-          "Managed shared hosting environments.",
-          "Built responsive themes for local businesses.",
-          "Maintained legacy WordPress installations.",
-        ],
-      },
-    ],
-  },
-  {
-    company: "Home Lab",
-    totalPeriod: "2012 - 2015",
-    isExtended: true,
-    roles: [
-      {
-        title: "Self-taught Hobbyist",
-        period: "2012 - 2015",
-        description:
-          "Experimenting with Linux, scripting, and basic HTML/CSS in various home lab configurations.",
-        longDescription:
-          "The curious start of everything. Learning by breaking and fixing Linux distributions, automating chores with shell scripts, and discovering the power of the terminal.",
-        tags: ["Linux", "Bash", "HomeLab", "Curiosity"],
-        icon: Terminal,
-        logs: [
-          "Flashed custom ROMs and kernel optimizations.",
-          "Configured first homelab on a recycled Dell OptiPlex.",
-          "Wrote first shell script for automated backups.",
+          "Built Company website in Codeigniter.",
+          "Portfolio Management Application for stock exchange.",
+          "Working with oracle database in portfolio management application.",
         ],
       },
     ],
