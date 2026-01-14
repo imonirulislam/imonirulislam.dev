@@ -9,6 +9,8 @@ import {
   Database,
   Cloud,
   ShieldCheck,
+  DatabaseBackup,
+  Code,
 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -30,7 +32,7 @@ const techCategories = [
       { name: "Docker", version: "Engine" },
       { name: "Kubernetes", version: "K8s" },
       { name: "Terraform", version: "IaC" },
-      { name: "Linux", version: "Kernel" },
+      { name: "Linux", version: "Shell" },
     ],
   },
   {
@@ -44,24 +46,39 @@ const techCategories = [
     ],
   },
   {
-    title: "Data & Runtime",
+    title: "Frontend",
+    icon: Code,
+    items: [
+      { name: "React", version: "v18" },
+      { name: "Next.js", version: "v14" },
+      { name: "Tailwind CSS", version: "v3" },
+      { name: "Shadcn UI", version: "v2" },
+    ],
+  },
+  {
+    title: "Databases",
     icon: Database,
     items: [
       { name: "PostgreSQL", version: "v15" },
+      { name: "MySQL", version: "v8" },
       { name: "Redis", version: "Buffer" },
-      { name: "RabbitMQ", version: "Bus" },
-      { name: "ClickHouse", version: "OLAP" },
+      { name: "NoSql", version: "DB" },
     ],
+  },
+  {
+    title: "Data Warehouses",
+    icon: DatabaseBackup,
+    items: [{ name: "Apache Druid", version: "v24" }],
   },
 ];
 
 function TechStackSkeleton() {
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <div className="flex flex-wrap justify-center gap-6">
       {[1, 2, 3, 4].map((i) => (
         <div
           key={i}
-          className="bg-secondary/10 border-border/50 h-[200px] rounded-lg border p-6"
+          className="bg-secondary/10 border-border/50 h-[200px] w-full max-w-[340px] min-w-[250px] flex-1 rounded-lg border p-6"
         >
           <div className="mb-6 flex items-center gap-3">
             <Skeleton className="h-8 w-8 rounded-md" />
@@ -123,7 +140,7 @@ export function TechStack() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+              className="flex flex-wrap justify-center gap-6"
             >
               {techCategories.map((category, idx) => (
                 <motion.div
@@ -132,7 +149,7 @@ export function TechStack() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="group relative"
+                  className="group relative w-full max-w-[340px] min-w-[250px] flex-1"
                 >
                   <div className="from-primary/10 absolute -inset-0.5 rounded-lg bg-gradient-to-b to-transparent opacity-0 blur transition duration-500 group-hover:opacity-100" />
                   <div className="bg-secondary/30 dark:bg-secondary/10 border-border/50 hover:border-primary/30 relative flex h-full flex-col rounded-lg border p-6 backdrop-blur-sm transition-all duration-300">
