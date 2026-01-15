@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-01-16
+
+### Added
+
+- **Experience**: Added new professional experience role with detailed logs and achievements.
+- **Projects**: Added new projects to the portfolio with comprehensive details.
+- **Projects**: Implemented "Load More" functionality with a limit of 6 items per view to improve performance.
+- **UI**: Added a "Resume" button to the Hero section with a creative hover effect.
+
+### Changed
+
+- **UI**: Relocated project "Source" and "Demo" buttons to the modal header on desktop for better accessibility.
+- **UI**: Increased modal width (`md:max-w-4xl`) for Projects and Experience on desktop screens.
+- **Icons**: Replaced deprecated Lucide icons with `simple-icons` and `react-icons` (branding consistency).
+- **UI**: Polished "Load More" button with a theme-aware glow effect.
+
 ## [1.1.0] - 2026-01-14
 
 ### Added
