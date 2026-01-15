@@ -7,12 +7,14 @@ import {
   MapPin,
   Briefcase,
   Building,
-  Github,
-  Linkedin,
-  Twitter,
   Terminal,
   ShieldCheck,
+  Download,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SimpleIcon } from "@/components/ui/simple-icon";
+import { siGithub, siX } from "simple-icons/icons";
+import { FaLinkedin } from "react-icons/fa";
 
 export function Hero() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +45,10 @@ export function Hero() {
                 <div className="space-y-2">
                   <Skeleton className="bg-secondary/20 h-6 w-full" />
                   <Skeleton className="bg-secondary/20 h-6 w-2/3" />
+                </div>
+                <div className="space-y-4 py-2">
+                  <Skeleton className="bg-secondary/20 h-12 w-64 rounded-lg" />
+                  <Skeleton className="bg-secondary/20 h-3 w-40" />
                 </div>
                 <div className="flex gap-4">
                   {[1, 2, 3, 4].map((i) => (
@@ -80,6 +86,41 @@ export function Hero() {
                   applications with a focus on high availability and operational
                   excellence.
                 </p>
+                <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <div className="group relative">
+                    <div className="from-primary/50 to-secondary/50 absolute -inset-0.5 animate-pulse rounded-lg bg-gradient-to-r opacity-30 blur transition duration-500 group-hover:opacity-100" />
+                    <Button
+                      className="bg-background border-primary/20 hover:bg-primary/5 hover:border-primary/50 text-foreground relative h-12 overflow-hidden rounded-lg border px-8 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.3)]"
+                      asChild
+                    >
+                      <a
+                        href="/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3"
+                      >
+                        <div className="bg-secondary/10 absolute inset-0 translate-y-[100%] transition-transform duration-300 group-hover:translate-y-0" />
+                        <span className="relative z-10 flex items-center gap-2">
+                          <span className="text-primary group-hover:animate-pulse">
+                            [
+                          </span>
+                          <Download className="h-4 w-4" />
+                          <span>DownLoad_Resume</span>
+                          <span className="text-primary group-hover:animate-pulse">
+                            ]
+                          </span>
+                        </span>
+                      </a>
+                    </Button>
+                  </div>
+
+                  <div className="text-muted-foreground/60 flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase">
+                    <span className="bg-primary/40 h-1.5 w-1.5 animate-pulse rounded-full" />
+                    <span>File_Size: 2.4MB</span>
+                    <span className="text-border">|</span>
+                    <span>Format: PDF</span>
+                  </div>
+                </div>
                 <div className="mb-12 flex flex-wrap gap-4 font-mono text-[10px] tracking-widest uppercase">
                   {[
                     { label: "OS", value: "Linux" },
@@ -210,21 +251,27 @@ export function Hero() {
                         className="hover:text-primary group/social p-1.5 transition-colors"
                         title="GITHUB"
                       >
-                        <Github className="h-4 w-4 transition-transform group-hover/social:scale-110" />
+                        <SimpleIcon
+                          icon={siGithub}
+                          className="h-4 w-4 transition-transform group-hover/social:scale-110"
+                        />
                       </a>
                       <a
                         href="#"
                         className="hover:text-primary group/social p-1.5 transition-colors"
                         title="LINKEDIN"
                       >
-                        <Linkedin className="h-4 w-4 transition-transform group-hover/social:scale-110" />
+                        <FaLinkedin className="h-4 w-4 transition-transform group-hover/social:scale-110" />
                       </a>
                       <a
                         href="#"
                         className="hover:text-primary group/social p-1.5 transition-colors"
-                        title="TWITTER"
+                        title="X"
                       >
-                        <Twitter className="h-4 w-4 transition-transform group-hover/social:scale-110" />
+                        <SimpleIcon
+                          icon={siX}
+                          className="h-4 w-4 transition-transform group-hover/social:scale-110"
+                        />
                       </a>
                     </div>
                   </div>

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -20,16 +21,107 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {
-  Github,
+  Brackets,
   Monitor,
-  Terminal,
   Server,
+  Terminal,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { SimpleIcon } from "@/components/ui/simple-icon";
+import { siGithub } from "simple-icons/icons";
 import Image from "next/image";
 
 const projects = [
+  {
+    title: "Butelka (Unified AdPlatform)",
+    description:
+      "Unified ad tech platform to push ads to different platforms like Improve Digital, DV360, and XANDR.",
+    longDescription:
+      "A comprehensive AdTech solution designed to streamline ad ingestion and distribution. Features upgraded auth mechanics for cross-platform access, efficient campaign syncing for batch ingestion to GCP, and optimized data conversion algorithms for seamless integration with multiple ad platforms.",
+    tech: ["NodeJS", "NestJS", "MongoDB", "ReactJs", "GCP"],
+    category: "Cloud",
+    specs: ["Unified Auth", "Batch Ingestion", "Ad Syncing"],
+    logs: [
+      "Upgraded the current Auth mechanics in the unified Adtech platform to access it from various platforms.",
+      "Syncing the ads campaign in an efficient way to support batch ingestion over time to GCP.",
+      "Make efficient conversion of unified ads data that helped it to push into different ad platforms",
+    ],
+    github: "#",
+    demo: "#",
+    images: [],
+  },
+  {
+    title: "Madvertise Warehouse",
+    description:
+      "Data warehousing pipeline migration and optimization for high-speed reporting.",
+    longDescription:
+      "Successfully migrated the full data warehousing pipeline from OVH to AWS, significantly speeding up data reporting. specialized in optimizing Apache Druid cluster configurations and ingestion specifications to reduce processing time and improve hardware efficiency.",
+    tech: ["Laravel", "PHP", "Druid", "AWS", "Terraform"],
+    category: "Data",
+    specs: ["AWS Migration", "Druid Optimization", "Terraform Infra"],
+    logs: [
+      "Migrated the full data warehousing pipeline to AWS cloud from OVH cloud which helped speed up the data cluster for reporting.",
+      "Updated Apache Druid cluster configs for efficient system hardware usability.",
+      "Updated Apache Druid ingestion specs for a better way to store data which helped reduce data ingestion time.",
+      "Bash scripting for managing log processing of the current application.",
+      "Migrated the existing infra in terraform for AWS services.",
+    ],
+    github: "#",
+    demo: "#",
+    images: [],
+  },
+  {
+    title: "Online Exam Platform",
+    description:
+      "Serverless MERN stack platform supporting 200K concurrent production requests.",
+    longDescription:
+      "A high-scale online examination platform built on a serverless architecture using AWS Lambda and DynamoDB. optimized for cost and performance, handling massive concurrent user loads with custom batch data insertion scripts and tuned database configurations.",
+    tech: ["NestJs", "DynamoDB", "AWS Lambda", "Serverless"],
+    category: "Backend",
+    specs: ["Serverless Arch", "200k User Capacity", "Cost Optimization"],
+    logs: [
+      "Building an online exam platform in the MERN stack for the company & and deploying in a serverless infrastructure that can support up to 200K requests from the users.",
+      "Created a NodeJS (express) script for batch data insertion to DynamoDb tables.",
+      "Configured the DynamoDb configs that helped reduce the cost.",
+    ],
+    github: "#",
+    demo: "#",
+    images: [],
+  },
+  {
+    title: "Self Hosted Git",
+    description:
+      "Fully managed self-hosted Gitea environment on AWS with automated backups.",
+    longDescription:
+      "Deployed and maintained a secure, self-hosted git infrastructure using Gitea on AWS. implemented robust automated backup solutions to ensure data integrity and minimize the risk of data loss for internal codebases.",
+    tech: ["Gitea", "AWS", "Bash", "DevOps"],
+    category: "DevOps",
+    specs: ["Self-Hosted", "Automated Backups", "Infra Management"],
+    logs: [
+      "Deployed own self-hosted git environment called (gitea) & and managed the full infrastructure on AWS.",
+      "Added backup for the git server to minimize the risk of data loss.",
+    ],
+    github: "#",
+    demo: "#",
+    images: [],
+  },
+  {
+    title: "Code Generator",
+    description:
+      "Custom internal tool in Golang for generating CRUD operations from rules.",
+    longDescription:
+      "An internal developer productivity tool built in Golang. Automates the creation of standard CRUD operations based on predefined business rules, significantly reducing boilerplate code and speeding up feature development.",
+    tech: ["Golang", "Bash", "Internal Tool"],
+    category: "Backend",
+    specs: ["Code Generation", "Custom CRUD", "Rule Engine"],
+    logs: [
+      "Build a custom code generator in Golang that generates custom CRUD from predefined rules.",
+    ],
+    github: "#",
+    demo: "#",
+    images: [],
+  },
   {
     title: "Data Warehouse Solution",
     description:
@@ -40,7 +132,7 @@ const projects = [
     category: "Cloud",
     specs: ["ETL Pipelines", "S3 Data Lake", "IAM Security"],
     github: "https://github.com/imonirulislam",
-    demo: "#",
+    demo: "https://imonirulislam.dev",
     images: [
       "/projects/data_warehouse_viz.png",
       "/projects/data_warehouse_query.png",
@@ -212,25 +304,65 @@ function ProjectItem({ project }: { project: (typeof projects)[0] }) {
           </Card>
         </motion.div>
       </DialogTrigger>
-      <DialogContent className="bg-background/95 border-border/50 max-w-2xl font-mono backdrop-blur-xl">
+      <DialogContent className="bg-background/95 border-border/50 max-w-2xl font-mono backdrop-blur-xl md:max-w-4xl">
         <DialogHeader>
           <div className="mb-2 flex items-center gap-2">
-            <div className="bg-primary/10 rounded-lg p-2">
-              <Server className="text-primary h-5 w-5" />
-            </div>
-            <span className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
-              DEPLOYMENT_NODE :: {project.category}
-            </span>
+            {isDataLoading ? (
+              <Skeleton className="bg-secondary/10 h-9 w-9 rounded-lg" />
+            ) : (
+              <div className="bg-primary/10 rounded-lg p-2">
+                <Server className="text-primary h-5 w-5" />
+              </div>
+            )}
+            {isDataLoading ? (
+              <Skeleton className="bg-secondary/10 h-3 w-48" />
+            ) : (
+              <span className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
+                DEPLOYMENT_NODE :: {project.category}
+              </span>
+            )}
           </div>
-          <DialogTitle className="flex items-center gap-3 text-2xl font-bold tracking-tight">
-            {project.title}
-            {!hasImages && (
-              <Badge
-                variant="outline"
-                className="bg-primary/10 text-primary border-primary/20 px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-sm"
-              >
-                DATA_ONLY_MODE
-              </Badge>
+          <DialogTitle className="flex items-center justify-between gap-3 text-2xl font-bold tracking-tight">
+            <div className="flex items-center gap-3">
+              {isDataLoading ? (
+                <Skeleton className="bg-secondary/10 h-8 w-48" />
+              ) : (
+                <>
+                  {project.title}
+                  {!hasImages && (
+                    <Badge
+                      variant="outline"
+                      className="bg-primary/10 text-primary border-primary/20 px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-sm"
+                    >
+                      DATA_ONLY_MODE
+                    </Badge>
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* Desktop Buttons */}
+            {!isDataLoading && (
+              <div className="hidden items-center gap-2 md:flex">
+                {project.github && project.github !== "#" && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-secondary hover:bg-secondary/80 border-border/50 flex items-center justify-center gap-2 rounded-md border px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase transition-colors"
+                  >
+                    <SimpleIcon icon={siGithub} className="h-3 w-3" /> Source
+                  </a>
+                )}
+                {project.demo && project.demo !== "#" && (
+                  <a
+                    href={project.demo}
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase transition-colors"
+                  >
+                    <Monitor className="h-3 w-3" /> Demo
+                  </a>
+                )}
+              </div>
             )}
           </DialogTitle>
         </DialogHeader>
@@ -253,13 +385,45 @@ function ProjectItem({ project }: { project: (typeof projects)[0] }) {
                   <Skeleton className="bg-secondary/10 h-4 w-5/6" />
                   <Skeleton className="bg-secondary/10 h-4 w-4/6" />
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <Skeleton
-                      key={i}
-                      className="bg-secondary/10 h-12 rounded-md"
-                    />
-                  ))}
+
+                <div className="space-y-4">
+                  <Skeleton className="bg-secondary/10 h-3 w-32" />
+                  <div className="grid grid-cols-2 gap-3">
+                    {[1, 2, 3, 4].map((i) => (
+                      <Skeleton
+                        key={i}
+                        className="bg-secondary/10 h-10 rounded-md"
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {project.logs && project.logs.length > 0 && (
+                  <div className="space-y-4">
+                    <Skeleton className="bg-secondary/10 h-3 w-40" />
+                    <div className="bg-secondary/10 space-y-3 rounded-md p-4 opacity-50">
+                      <Skeleton className="bg-secondary/20 h-3 w-full" />
+                      <Skeleton className="bg-secondary/20 h-3 w-5/6" />
+                      <Skeleton className="bg-secondary/20 h-3 w-4/5" />
+                    </div>
+                  </div>
+                )}
+
+                <div className="space-y-4">
+                  <Skeleton className="bg-secondary/10 h-3 w-36" />
+                  <div className="flex flex-wrap gap-2">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Skeleton
+                        key={i}
+                        className="bg-secondary/10 h-6 w-16 rounded shadow-sm"
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex gap-4 pt-4">
+                  <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
+                  <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
                 </div>
               </motion.div>
             ) : (
@@ -350,6 +514,27 @@ function ProjectItem({ project }: { project: (typeof projects)[0] }) {
                   </div>
                 </div>
 
+                {project.logs && project.logs.length > 0 && (
+                  <div className="space-y-4">
+                    <h4 className="text-muted-foreground/50 flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                      <Terminal className="h-3 w-3" /> System :: Execution_Log
+                    </h4>
+                    <div className="bg-secondary/20 border-border/30 space-y-2 rounded-md border p-4">
+                      {project.logs.map((log, i) => (
+                        <div
+                          key={i}
+                          className="text-muted-foreground/90 flex items-start gap-4 font-mono text-xs"
+                        >
+                          <span className="text-primary/70 shrink-0 font-bold">
+                            [#]
+                          </span>
+                          <span>{log}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="space-y-4">
                   <h4 className="text-muted-foreground/50 text-[10px] font-bold tracking-widest uppercase">
                     Core :: Technology
@@ -370,21 +555,36 @@ function ProjectItem({ project }: { project: (typeof projects)[0] }) {
           </AnimatePresence>
         </div>
 
-        <div className="border-border/20 flex gap-4 border-t pt-6">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-secondary hover:bg-secondary/80 border-border/50 flex flex-1 items-center justify-center gap-2 rounded-md border py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
-          >
-            <Github className="h-3.5 w-3.5" /> Source_Code
-          </a>
-          <a
-            href={project.demo}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 flex flex-1 items-center justify-center gap-2 rounded-md py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
-          >
-            <Monitor className="h-3.5 w-3.5" /> Live_Demo
-          </a>
+        {/* Mobile Footer Buttons */}
+        <div className="border-border/20 flex gap-4 border-t pt-6 md:hidden">
+          {isDataLoading ? (
+            <>
+              <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
+              <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
+            </>
+          ) : (
+            <>
+              {project.github && project.github !== "#" && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-secondary hover:bg-secondary/80 border-border/50 flex flex-1 items-center justify-center gap-2 rounded-md border py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
+                >
+                  <SimpleIcon icon={siGithub} className="h-3.5 w-3.5" />{" "}
+                  Source_Code
+                </a>
+              )}
+              {project.demo && project.demo !== "#" && (
+                <a
+                  href={project.demo}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 flex flex-1 items-center justify-center gap-2 rounded-md py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
+                >
+                  <Monitor className="h-3.5 w-3.5" /> Live_Demo
+                </a>
+              )}
+            </>
+          )}
         </div>
 
         <div className="text-muted-foreground/40 flex items-center justify-between pt-4 text-[9px] tracking-widest uppercase">
@@ -408,6 +608,7 @@ const categories = [
 export function Projects() {
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1800);
@@ -420,6 +621,8 @@ export function Projects() {
       : projects.filter(
           (p) => p.category === filter || p.tech.includes(filter)
         );
+
+  const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   return (
     <section id="projects" className="relative scroll-mt-20 py-24">
@@ -447,7 +650,10 @@ export function Projects() {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setFilter(cat)}
+                onClick={() => {
+                  setFilter(cat);
+                  setVisibleCount(6);
+                }}
                 className={`border px-3 py-1 font-mono text-[10px] transition-all duration-200 ${
                   filter === cat
                     ? "bg-primary text-primary-foreground border-primary"
@@ -497,7 +703,7 @@ export function Projects() {
                 className="col-span-full grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
               >
                 <AnimatePresence mode="popLayout">
-                  {filteredProjects.map((project, index) => (
+                  {displayedProjects.map((project, index) => (
                     <motion.div
                       key={project.title}
                       initial={{ opacity: 0, y: 20 }}
@@ -514,6 +720,20 @@ export function Projects() {
             )}
           </AnimatePresence>
         </div>
+
+        {!isLoading && visibleCount < filteredProjects.length && (
+          <div className="mt-12 flex justify-center">
+            <Button
+              variant="outline"
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              className="bg-background/50 hover:bg-primary/10 hover:text-primary hover:border-primary border-primary/20 text-muted-foreground gap-2 px-8 font-mono text-xs tracking-widest uppercase transition-all"
+            >
+              <Brackets className="h-4 w-4 rotate-90" />
+              Load_More_Nodes
+              <Brackets className="h-4 w-4 -rotate-90" />
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
