@@ -26,11 +26,11 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-secondary/10 border-border/20 relative overflow-hidden border-t py-12 backdrop-blur-sm">
+    <footer className="bg-secondary/10 border-border/20 relative overflow-hidden border-t pt-12 pb-12 backdrop-blur-sm md:pb-24">
       {/* Subtle gradient glow */}
       <div className="bg-primary/5 pointer-events-none absolute -bottom-24 left-1/2 h-[200px] w-[500px] -translate-x-1/2 blur-[100px]" />
 
-      <div className="relative container mx-auto max-w-5xl px-4">
+      <div className="relative z-10 container mx-auto max-w-5xl px-4">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
@@ -60,13 +60,21 @@ export function Footer() {
 
           <div className="flex flex-col gap-4 md:items-end">
             <div className="flex gap-6">
-              {["LinkedIn", "GitHub", "Email"].map((social) => (
+              {[
+                {
+                  name: "LinkedIn",
+                  href: "https://www.linkedin.com/in/monirulislamrasel/",
+                },
+                { name: "GitHub", href: "https://github.com/imonirulislam" },
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary font-mono text-[10px] font-bold tracking-[0.2em] uppercase transition-colors"
                 >
-                  {social}
+                  {social.name}
                 </a>
               ))}
             </div>
