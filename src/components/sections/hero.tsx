@@ -81,10 +81,9 @@ export function Hero() {
                   <br /> infrastructure
                 </h1>
                 <p className="text-muted-foreground mb-10 max-w-xl text-base leading-relaxed md:text-lg">
-                  Executing low-level system optimizations and hardware
-                  orchestration. I build robust systems that power modern
-                  applications with a focus on high availability and operational
-                  excellence.
+                  Bridging the gap between software architecture and hardware
+                  reality. I lead technical initiatives to build secure,
+                  scalable, and efficient systems for the modern web.
                 </p>
                 <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <div className="group relative">
