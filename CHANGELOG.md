@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-01-20
+
+### Changed
+
+- **Refactor**: Major refactoring of `Projects` and `Experience` sections to improve modularity.
+- **Components**: Extracted `ProjectItem`, `ProjectPlaceholder`, and `ExperienceItem` into dedicated components.
+- **Data**: Moved hardcoded data to `src/data/projects.ts` and `src/data/experience.ts`.
+- **Types**: Extracted interfaces to `src/types/project.ts` and `src/types/experience.ts`.
+- **Logic**: Centralized home page logic in `src/hooks/use-home-logic.ts`.
+- **Enums**: Introduced `ProjectCategory` enum for stricter type safety in project filtering.
+- **Refactor**: Separated Tech Stack data and components.
+
 ## [1.2.0] - 2026-01-16
 
 ### Added
