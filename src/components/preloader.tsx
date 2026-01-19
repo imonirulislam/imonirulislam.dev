@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const bootMessages = [
   "Initializing MI_ROOT kernel...",
-  "Loading Node.js modules...",
-  "Establishing AWS Mumbai handshake...",
-  "Mounting bare metal assets...",
-  "Starting Data Warehouse service...",
-  "Loading Infrastructure as Code...",
+  "Compiling Next.js environment...",
+  "Calibrating OKLCH color matrix...",
+  "Hydrating React visual nodes...",
+  "Fetching portfolio telemetry data...",
+  "Optimizing system HUD animations...",
   "System ready. Welcome, USER.",
 ];
 
