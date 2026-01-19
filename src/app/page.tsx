@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useHomeLogic } from "@/hooks/use-home-logic";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/sections/hero";
 import { TechStack } from "@/components/sections/tech-stack";
@@ -12,11 +12,11 @@ import { Preloader } from "@/components/preloader";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const { loading, handleLoadingComplete } = useHomeLogic();
 
   return (
     <>
-      <Preloader onComplete={() => setLoading(false)} />
+      <Preloader onComplete={handleLoadingComplete} />
       <AnimatePresence>
         {!loading && (
           <motion.div
