@@ -43,6 +43,7 @@
 - **Styling**: Use Tailwind utility classes. Avoid custom CSS files unless necessary (use `index.css` for global styles).
 - **Icons**: `lucide-react`, `react-icons`, `simple-icons`.
 - **Theme**: Supports light/dark mode via `next-themes` and `theme-provider.tsx`.
+- **Design System**: See `DESIGN.md` for detailed style guidelines.
 
 ## Specialized Instructions
 
