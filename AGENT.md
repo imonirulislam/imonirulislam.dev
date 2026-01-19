@@ -4,7 +4,7 @@
 
 **Name**: imonirulislam.dev
 **Description**: A personal portfolio engineered with a server console / system HUD aesthetic. The design philosophy centers on a "hackerman" or advanced interface vibe, utilizing dark modes, monospaced fonts where appropriate, and terminal-like visuals.
-**Version**: 1.1.0
+**Version**: 1.3.0
 
 ## Tech Stack
 
@@ -22,6 +22,9 @@
 - `src/app`: App Router pages and layouts.
 - `src/components`: Reusable UI components.
   - `ui`: Shadcn UI primitives.
+- `src/data`: Static data files (projects, experience, tech-stack).
+- `src/types`: TypeScript definitions and enums.
+- `src/hooks`: Custom React hooks.
 - `public`: Static assets.
 
 ## Development Workflow
