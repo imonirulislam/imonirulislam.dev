@@ -14,6 +14,7 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "type-check": "tsc --noEmit",
+    "security-check": "bun x fix-react2shell-next --dry-run",
     "pages:build": "next build"
   },
   "dependencies": {

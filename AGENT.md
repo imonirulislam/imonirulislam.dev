@@ -15,7 +15,7 @@
   - [Shadcn UI](https://ui.shadcn.com/) (Component library)
   - [Framer Motion](https://www.framer.com/motion/) (Animations)
 - **Runtime**: Node.js >=22.17.0
-- **Package Manager**: npm/bun (Lockfile: `bun.lockb`)
+- **Package Manager**: [Bun](https://bun.sh/) (Lockfile: `bun.lockb`)
 
 ## Key Directories
 
@@ -31,11 +31,11 @@
 
 ### Commands
 
-- **Start Development Server**: `npm run dev` (or `next dev`)
-- **Build for Production**: `npm run build` (or `next build`)
-- **Lint Code**: `npm run lint` (or `eslint`)
-- **Format Code**: `npm run format` (or `prettier --check .`)
-- **Type Check**: `npm run type-check` (or `tsc --noEmit`)
+- **Start Development Server**: `bun dev` (or `bun run dev`)
+- **Build for Production**: `bun run build`
+- **Lint Code**: `bun run lint`
+- **Format Code**: `bun run format`
+- **Type Check**: `bun run type-check`
 
 ### Conventions
 
