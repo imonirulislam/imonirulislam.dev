@@ -5,6 +5,7 @@ export enum ProjectCategory {
   DevOps = "DevOps",
   Legacy = "Legacy",
   Infrastructure = "Infrastructure",
+  Web = "Web",
 }
 
 export interface Project {
