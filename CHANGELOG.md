@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-01-27
+
+### Added
+
+- **HUD Overlay**: Implemented a comprehensive "Heads-Up Display" with real-time scroll progress (top and vertical side bars).
+- **Interactive Identity**: Added a persistent "Terminal Handshake" module in the HUD with persistent `GUEST_ID` (localStorage), session uptime, and visit counters.
+- **Biometric Preloader**: Transformed the entry sequence into a "Biometric Authorization" scanner with interactive "Hold to Authorize" logic.
+- **Real-time Telemetry**: Added authentic network latency (RTT) measurement integrated into the HUD diagnostics.
+- **Easter Eggs**: Introduced terminal commands via Command Palette: `/matrix` (interactive code rain) and `/neofetch` (system summary).
+- **Core Interactivity**: Implemented "Magnetic Pull" interactions for all primary action buttons and social icons.
+- **Custom Cursor**: Added a technical crosshair cursor with real-time coordinate tracking and context-aware feedback.
+- **Global CRT Effect**: Applied a global scanline and screen flicker effect to enhance the "System Console" aesthetic.
+
+### Changed
+
+- **Tech Stack**: Refactored the technology section into a "Bento Grid" modular layout.
+- **HUD Integration**: Optimized HUD positioning to integrate seamlessly with the site navigation and navbar.
+- **Navigation**: Enhanced the Command Palette (Cmd+K) with categorized system actions and site-wide navigation.
+
+### Removed
+
+- **Legacy Logging**: Decommissioned the old `ActivityLog` component in favor of the integrated HUD diagnostics.
+
 ## [1.3.0] - 2026-01-20
 
 ### Changed

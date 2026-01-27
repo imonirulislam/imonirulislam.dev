@@ -42,8 +42,21 @@ We utilize the **OKLCH** color space for perceptual uniformity.
 
 - **Dot Pattern**: A radial gradient array used for texture in denser sections.
 - **Glassmorphism**: Heavy use of `backdrop-blur-sm` combined with `bg-secondary/10` to create layered depth.
+- **CRT Effect**: A global scanline and screen flicker overlay to cement the "System Console" aesthetic.
 
-## 6. Iconography
+## 6. Interactivity & Feel
+
+- **Magnetic Pull**: Primary buttons and social icons utilize a magnetic transition, making the UI feel tactile and responsive.
+- **Custom Cursor**: A crosshair cursor with real-time X/Y tracking and context-aware expansion.
+- **HUD (Heads-Up Display)**: Persistent scroll progress bars (top and side) and real-time telemetry (Ping/RTT).
+
+## 7. Identity & Session Design
+
+- **Terminal Handshake**: The top-right identity block is a collapsible module that expands on hover.
+- **Visuals**: Uses monospaced brackets, segmented data blocks, and live status pulses (e.g., `AUTHORIZATION: LV_01`).
+- **Telemetry**: Measures real network latency (RTT) every 5 seconds.
+
+## 8. Iconography
 
 - **Primary**: `lucide-react` (Navigation, UI actions).
 - **Brand/Social**: `simple-icons` (GitHub, LinkedIn, Tech logos).

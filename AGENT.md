@@ -3,8 +3,8 @@
 ## Project Overview
 
 **Name**: imonirulislam.dev
-**Description**: A personal portfolio engineered with a server console / system HUD aesthetic. The design philosophy centers on a "hackerman" or advanced interface vibe, utilizing dark modes, monospaced fonts where appropriate, and terminal-like visuals.
-**Version**: 1.3.0
+**Description**: A personal portfolio engineered with a server console / system HUD aesthetic. Features an immersive, high-tech interface with real-time telemetry, biometric authorization, and terminal-style navigation.
+**Version**: 2.0.0
 
 ## Tech Stack
 
@@ -17,15 +17,14 @@
 - **Runtime**: Node.js >=22.17.0
 - **Package Manager**: [Bun](https://bun.sh/) (Lockfile: `bun.lockb`)
 
-## Key Directories
+## Key Architecture & Components
 
-- `src/app`: App Router pages and layouts.
-- `src/components`: Reusable UI components.
-  - `ui`: Shadcn UI primitives.
-- `src/data`: Static data files (projects, experience, tech-stack).
-- `src/types`: TypeScript definitions and enums.
-- `src/hooks`: Custom React hooks.
-- `public`: Static assets.
+- `src/components/global-effects.tsx`: Central client-side wrapper for HUD, matrix effects, and custom cursor.
+- `src/components/hud-overlay.tsx`: Core "System HUD" implementing scroll tracking, identity management, and real-time RTT telemetry.
+- `src/components/preloader.tsx`: Interactive biometric authorization sequence.
+- `src/components/command-palette.tsx`: Terminal-style navigation and system commands (Cmd+K).
+- `src/components/matrix-rain.tsx`: Full-screen digital rain Easter Egg.
+- `src/components/custom-cursor.tsx`: Technical crosshair cursor with real-time coordinate tracking.
 
 ## Development Workflow
 
