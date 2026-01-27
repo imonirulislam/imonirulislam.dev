@@ -113,6 +113,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --scanline-color: oklch(1 0 0 / 0.03);
+  --flicker-opacity: 0.95;
 }
 
 @layer base {
@@ -152,5 +155,58 @@
       transparent 1px
     );
     background-size: 20px 20px;
+  }
+
+  .crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      var(--scanline-color) 50%
+    );
+    background-size: 100% 4px;
+    animation: scanline 10s linear infinite;
+  }
+
+  .crt-overlay::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.03);
+    opacity: 0;
+    z-index: 100;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
+
+  @keyframes scanline {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 100%;
+    }
+  }
+
+  @keyframes flicker {
+    0% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 0.05;
+    }
+  }
+
+  .magnetic-active {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
 }

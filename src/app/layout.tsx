@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GlobalEffects } from "@/components/global-effects";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,21 +33,22 @@ export const metadata: Metadata = {
     "TypeScript",
     "React",
     "Next.js",
+    "OMNI_ROOT",
   ],
   authors: [{ name: "Monirul Islam", url: "https://imonirulislam.dev" }],
   creator: "Monirul Islam",
-  metadataBase: new URL("https://imonirulislam-dev.pages.dev"),
+  metadataBase: new URL("https://imonirulislam.dev"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://imonirulislam-dev.pages.dev",
+    url: "https://imonirulislam.dev",
     title: "Monirul Islam | Systems & Software Engineer",
     description:
       "Systems and Software Engineer specializing in high-performance Node.js architectures, AWS infrastructure, and bare metal orchestration.",
     siteName: "Monirul Islam Portfolio",
     images: [
       {
-        url: "/og-image.png", // We might need to generate this or use a placeholder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Monirul Islam - Systems & Software Engineer",
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
     description:
       "Building robust systems and scalable infrastructure. Specialist in Node.js, AWS, and Linux internals.",
     images: ["/og-image.png"],
-    creator: "@imonirulislam", // Assuming handle/placeholder
+    creator: "@imonirulislam",
   },
   robots: {
     index: true,
@@ -82,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} selection:bg-primary selection:text-primary-foreground relative antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} selection:bg-primary selection:text-primary-foreground relative antialiased md:cursor-none`}
       >
         <ThemeProvider
           attribute="class"
@@ -90,6 +92,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <GlobalEffects />
           <div className="grid-pattern pointer-events-none fixed inset-0 -z-10 opacity-[0.4]" />
           <div className="relative flex min-h-screen flex-col">{children}</div>
         </ThemeProvider>
