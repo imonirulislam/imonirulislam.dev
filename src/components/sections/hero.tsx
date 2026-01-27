@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { SimpleIcon } from "@/components/ui/simple-icon";
 import { siGithub, siX } from "simple-icons/icons";
 import { FaLinkedin } from "react-icons/fa";
+import { Magnetic } from "@/components/ui/magnetic";
 
 export function Hero() {
   const [isLoading, setIsLoading] = useState(true);
@@ -86,32 +87,34 @@ export function Hero() {
                   scalable, and efficient systems for the modern web.
                 </p>
                 <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div className="group relative">
-                    <div className="from-primary/50 to-secondary/50 absolute -inset-0.5 animate-pulse rounded-lg bg-gradient-to-r opacity-30 blur transition duration-500 group-hover:opacity-100" />
-                    <Button
-                      className="bg-background border-primary/20 hover:bg-primary/5 hover:border-primary/50 text-foreground relative h-12 overflow-hidden rounded-lg border px-8 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.3)]"
-                      asChild
-                    >
-                      <a
-                        href="/resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3"
+                  <Magnetic>
+                    <div className="group relative">
+                      <div className="from-primary/50 to-secondary/50 absolute -inset-0.5 animate-pulse rounded-lg bg-gradient-to-r opacity-30 blur transition duration-500 group-hover:opacity-100" />
+                      <Button
+                        className="bg-background border-primary/20 hover:bg-primary/5 hover:border-primary/50 text-foreground relative h-12 overflow-hidden rounded-lg border px-8 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.3)]"
+                        asChild
                       >
-                        <div className="bg-secondary/10 absolute inset-0 translate-y-[100%] transition-transform duration-300 group-hover:translate-y-0" />
-                        <span className="relative z-10 flex items-center gap-2">
-                          <span className="text-primary group-hover:animate-pulse">
-                            [
+                        <a
+                          href="/resume.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3"
+                        >
+                          <div className="bg-secondary/10 absolute inset-0 translate-y-[100%] transition-transform duration-300 group-hover:translate-y-0" />
+                          <span className="relative z-10 flex items-center gap-2">
+                            <span className="text-primary group-hover:animate-pulse">
+                              [
+                            </span>
+                            <Download className="h-4 w-4" />
+                            <span>DownLoad_Resume</span>
+                            <span className="text-primary group-hover:animate-pulse">
+                              ]
+                            </span>
                           </span>
-                          <Download className="h-4 w-4" />
-                          <span>DownLoad_Resume</span>
-                          <span className="text-primary group-hover:animate-pulse">
-                            ]
-                          </span>
-                        </span>
-                      </a>
-                    </Button>
-                  </div>
+                        </a>
+                      </Button>
+                    </div>
+                  </Magnetic>
 
                   <div className="text-muted-foreground/60 flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase">
                     <span className="bg-primary/40 h-1.5 w-1.5 animate-pulse rounded-full" />
@@ -244,34 +247,40 @@ export function Hero() {
                       Social_Interfaces:
                     </div>
                     <div className="flex gap-4">
-                      <a
-                        href="https://github.com/imonirulislam"
-                        target="_blank"
-                        className="hover:text-primary group/social p-1.5 transition-colors"
-                        title="GITHUB"
-                      >
-                        <SimpleIcon
-                          icon={siGithub}
-                          className="h-4 w-4 transition-transform group-hover/social:scale-110"
-                        />
-                      </a>
-                      <a
-                        href="#"
-                        className="hover:text-primary group/social p-1.5 transition-colors"
-                        title="LINKEDIN"
-                      >
-                        <FaLinkedin className="h-4 w-4 transition-transform group-hover/social:scale-110" />
-                      </a>
-                      <a
-                        href="#"
-                        className="hover:text-primary group/social p-1.5 transition-colors"
-                        title="X"
-                      >
-                        <SimpleIcon
-                          icon={siX}
-                          className="h-4 w-4 transition-transform group-hover/social:scale-110"
-                        />
-                      </a>
+                      <Magnetic>
+                        <a
+                          href="https://github.com/imonirulislam"
+                          target="_blank"
+                          className="hover:text-primary group/social p-1.5 transition-colors"
+                          title="GITHUB"
+                        >
+                          <SimpleIcon
+                            icon={siGithub}
+                            className="h-4 w-4 transition-transform group-hover/social:scale-110"
+                          />
+                        </a>
+                      </Magnetic>
+                      <Magnetic>
+                        <a
+                          href="#"
+                          className="hover:text-primary group/social p-1.5 transition-colors"
+                          title="LINKEDIN"
+                        >
+                          <FaLinkedin className="h-4 w-4 transition-transform group-hover/social:scale-110" />
+                        </a>
+                      </Magnetic>
+                      <Magnetic>
+                        <a
+                          href="#"
+                          className="hover:text-primary group/social p-1.5 transition-colors"
+                          title="X"
+                        >
+                          <SimpleIcon
+                            icon={siX}
+                            className="h-4 w-4 transition-transform group-hover/social:scale-110"
+                          />
+                        </a>
+                      </Magnetic>
                     </div>
                   </div>
                 </div>
