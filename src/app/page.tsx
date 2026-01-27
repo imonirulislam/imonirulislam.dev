@@ -7,7 +7,6 @@ import { TechStack } from "@/components/sections/tech-stack";
 import { Experience } from "@/components/sections/experience";
 import { Projects } from "@/components/sections/projects";
 import { Footer } from "@/components/footer";
-import { ActivityLog } from "@/components/activity-log";
 import { Preloader } from "@/components/preloader";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -33,7 +32,6 @@ export default function Home() {
               <Projects />
             </main>
             <Footer />
-            <ActivityLog />
           </motion.div>
         )}
       </AnimatePresence>

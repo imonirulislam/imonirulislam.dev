@@ -6,6 +6,7 @@ import { Terminal, ShieldCheck } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { techCategories } from "@/data/tech-stack";
 import { TechCategoryCard } from "@/components/tech-category-card";
+import { Magnetic } from "@/components/ui/magnetic";
 
 function TechStackSkeleton() {
   return (
@@ -42,7 +43,7 @@ export function TechStack() {
   }, []);
 
   return (
-    <section className="scroll-mt-20 py-20">
+    <section id="tech" className="scroll-mt-20 py-20">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="border-border/40 mb-12 flex flex-col justify-between gap-4 border-b pb-8 md:flex-row md:items-end">
           <div>
@@ -75,21 +76,59 @@ export function TechStack() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="flex flex-wrap justify-center gap-6"
+              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
             >
-              {techCategories.map((category, idx) => (
-                <motion.div
-                  key={category.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="group relative w-full max-w-[340px] min-w-[250px] flex-1"
-                >
-                  <div className="from-primary/10 absolute -inset-0.5 rounded-lg bg-gradient-to-b to-transparent opacity-0 blur transition duration-500 group-hover:opacity-100" />
-                  <TechCategoryCard category={category} />
-                </motion.div>
-              ))}
+              {techCategories.map((category, idx) => {
+                const isLarge =
+                  category.title === "Infrastructure" ||
+                  category.title === "Back End";
+                return (
+                  <motion.div
+                    key={category.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className={`group relative ${isLarge ? "md:col-span-2" : ""}`}
+                  >
+                    <Magnetic>
+                      <div className="h-full w-full">
+                        <div className="from-primary/10 absolute -inset-0.5 rounded-lg bg-gradient-to-b to-transparent opacity-0 blur transition duration-500 group-hover:opacity-100" />
+                        <TechCategoryCard category={category} />
+                      </div>
+                    </Magnetic>
+                  </motion.div>
+                );
+              })}
+
+              {/* Decorative System Health Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-secondary/10 border-border/50 hidden flex-col justify-between rounded-lg border p-6 lg:flex"
+              >
+                <div className="flex items-center gap-3 font-mono text-xs">
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+                  SYSTEM_HEALTH_OK
+                </div>
+                <div className="mt-4 space-y-2">
+                  <div className="bg-primary/20 h-1 w-full overflow-hidden rounded-full">
+                    <motion.div
+                      animate={{ x: ["-100%", "100%"] }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      className="bg-primary h-full w-1/2"
+                    />
+                  </div>
+                  <span className="text-muted-foreground/40 font-mono text-[8px]">
+                    SCANNING_PROTOCOLS...
+                  </span>
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
