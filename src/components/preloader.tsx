@@ -38,7 +38,13 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
       );
       return () => clearTimeout(timer);
     } else {
-      setTimeout(() => setIsBooted(true), 0);
+      setTimeout(() => {
+        setIsVisible(false);
+        setTimeout(() => {
+          onComplete();
+          window.dispatchEvent(new CustomEvent("system-ready"));
+        }, 500);
+      }, 300);
     }
   }, [currentStep]);
 
