@@ -18,5 +18,6 @@ export interface Project {
   logs?: string[];
   github: string;
   demo: string;
+  docs?: string;
   images: string[];
 }

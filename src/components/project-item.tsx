@@ -18,6 +18,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {
+  BookOpen,
   Monitor,
   Server,
   Terminal,
@@ -164,6 +165,8 @@ export function ProjectItem({ project }: { project: Project }) {
                 {project.demo && project.demo !== "#" && (
                   <a
                     href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase transition-colors"
                   >
                     <Monitor className="h-3 w-3" /> Demo
@@ -299,9 +302,21 @@ export function ProjectItem({ project }: { project: Project }) {
                   </div>
                 )}
 
-                <DialogDescription className="text-muted-foreground/70 text-sm leading-relaxed">
-                  {project.longDescription}
-                </DialogDescription>
+                <div className="space-y-3">
+                  <DialogDescription className="text-muted-foreground/70 text-sm leading-relaxed">
+                    {project.longDescription}
+                  </DialogDescription>
+                  {project.docs && project.docs !== "#" && (
+                    <a
+                      href={project.docs}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary/80 hover:text-primary inline-flex items-center gap-2 font-mono text-[10px] font-bold tracking-widest uppercase underline decoration-dotted underline-offset-4 transition-colors"
+                    >
+                      <BookOpen className="h-3 w-3" /> Read_The_Docs
+                    </a>
+                  )}
+                </div>
                 <div className="space-y-4">
                   <h4 className="text-muted-foreground/50 flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
                     <Terminal className="h-3 w-3" /> System :: Specifications
@@ -385,6 +400,8 @@ export function ProjectItem({ project }: { project: Project }) {
               {project.demo && project.demo !== "#" && (
                 <a
                   href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 flex flex-1 items-center justify-center gap-2 rounded-md py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
                 >
                   <Monitor className="h-3.5 w-3.5" /> Live_Demo
