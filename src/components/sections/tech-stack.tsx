@@ -1,47 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, ShieldCheck } from "lucide-react";
-import { Skeleton } from "@/components/ui/skeleton";
 import { techCategories } from "@/data/tech-stack";
 import { TechCategoryCard } from "@/components/tech-category-card";
 import { Magnetic } from "@/components/ui/magnetic";
 
-function TechStackSkeleton() {
-  return (
-    <div className="flex flex-wrap justify-center gap-6">
-      {[1, 2, 3, 4].map((i) => (
-        <div
-          key={i}
-          className="bg-secondary border-border h-[200px] w-full max-w-[340px] min-w-[250px] flex-1 rounded-lg border p-6"
-        >
-          <div className="mb-6 flex items-center gap-3">
-            <Skeleton className="h-8 w-8 rounded-md" />
-            <Skeleton className="h-4 w-32" />
-          </div>
-          <div className="space-y-4">
-            {[1, 2, 3, 4].map((j) => (
-              <div key={j} className="flex items-center justify-between">
-                <Skeleton className="h-3 w-20" />
-                <Skeleton className="h-3 w-12" />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export function TechStack() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <section id="tech" className="scroll-mt-20 py-20">
       <div className="container mx-auto max-w-5xl px-4">
@@ -61,75 +26,64 @@ export function TechStack() {
         </div>
 
         <AnimatePresence mode="wait">
-          {isLoading ? (
-            <motion.div
-              key="skeleton"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <TechStackSkeleton />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="content"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
-            >
-              {techCategories.map((category, idx) => {
-                const isLarge =
-                  category.title === "Infrastructure" ||
-                  category.title === "Back End";
-                return (
-                  <motion.div
-                    key={category.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className={`group relative ${isLarge ? "md:col-span-2" : ""}`}
-                  >
-                    <Magnetic>
-                      <div className="h-full w-full">
-                        <TechCategoryCard category={category} />
-                      </div>
-                    </Magnetic>
-                  </motion.div>
-                );
-              })}
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+          >
+            {techCategories.map((category, idx) => {
+              const isLarge =
+                category.title === "Infrastructure" ||
+                category.title === "Back End";
+              return (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className={`group relative ${isLarge ? "md:col-span-2" : ""}`}
+                >
+                  <Magnetic>
+                    <div className="h-full w-full">
+                      <TechCategoryCard category={category} />
+                    </div>
+                  </Magnetic>
+                </motion.div>
+              );
+            })}
 
-              {/* Decorative System Health Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-secondary border-border hidden flex-col justify-between rounded-lg border p-6 lg:flex"
-              >
-                <div className="flex items-center gap-3 font-mono text-xs">
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
-                  SYSTEM_HEALTH_OK
+            {/* Decorative System Health Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-secondary border-border hidden flex-col justify-between rounded-lg border p-6 lg:flex"
+            >
+              <div className="flex items-center gap-3 font-mono text-xs">
+                <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+                SYSTEM_HEALTH_OK
+              </div>
+              <div className="mt-4 space-y-2">
+                <div className="bg-card border-border h-3 w-full overflow-hidden border-2">
+                  <motion.div
+                    animate={{ x: ["-100%", "100%"] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="bg-pop-lime h-full w-1/2"
+                  />
                 </div>
-                <div className="mt-4 space-y-2">
-                  <div className="bg-card border-border h-3 w-full overflow-hidden border-2">
-                    <motion.div
-                      animate={{ x: ["-100%", "100%"] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="bg-pop-lime h-full w-1/2"
-                    />
-                  </div>
-                  <span className="text-muted-foreground font-mono text-[8px]">
-                    SCANNING_PROTOCOLS...
-                  </span>
-                </div>
-              </motion.div>
+                <span className="text-muted-foreground font-mono text-[8px]">
+                  SCANNING_PROTOCOLS...
+                </span>
+              </div>
             </motion.div>
-          )}
+          </motion.div>
         </AnimatePresence>
 
         <div className="mt-12 flex items-center justify-center">

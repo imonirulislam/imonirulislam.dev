@@ -13,11 +13,25 @@ const bootMessages = [
   "System ready.",
 ];
 
+const BOOTED_KEY = "MI_BOOTED";
+
+const announceReady = (onComplete: () => void) => {
+  onComplete();
+  // Dispatch only AFTER content is visible to ensure correct scroll height calculation
+  window.dispatchEvent(new CustomEvent("system-ready"));
+};
+
 export function Preloader({ onComplete }: { onComplete: () => void }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    // Set by the inline script in layout.tsx, which also hides this screen before first paint.
+    if (document.documentElement.dataset.booted === "1") {
+      announceReady(onComplete);
+      return;
+    }
+
     if (currentStep < bootMessages.length) {
       const timer = setTimeout(
         () => setCurrentStep((prev) => prev + 1),
@@ -30,9 +44,10 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
     const hideTimer = setTimeout(() => {
       setIsVisible(false);
       completeTimer = setTimeout(() => {
-        onComplete();
-        // Dispatch only AFTER content is visible to ensure correct scroll height calculation
-        window.dispatchEvent(new CustomEvent("system-ready"));
+        try {
+          sessionStorage.setItem(BOOTED_KEY, "1");
+        } catch {}
+        announceReady(onComplete);
       }, 500);
     }, 300);
     return () => {
@@ -50,6 +65,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
           initial={{ opacity: 1 }}
           exit={{ y: "-100%" }}
           transition={{ duration: 0.4, ease: [0.7, 0, 0.3, 1] }}
+          data-preloader
           className="bg-pop-yellow fixed inset-0 z-[100] flex items-center justify-center p-6 text-black"
         >
           <div className="w-full max-w-md border-2 border-black bg-white font-mono shadow-[8px_8px_0_0_#000]">

@@ -127,7 +127,8 @@
   transition:
     transform 120ms ease-out,
     box-shadow 120ms ease-out;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     transform: translate(4px, 4px);
     box-shadow: none;
   }
@@ -137,10 +138,16 @@
   transition:
     transform 120ms ease-out,
     box-shadow 120ms ease-out;
-  &:hover {
+  &:hover,
+  &:focus-visible,
+  :focus-visible > & {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 0 var(--shadow-color);
   }
+}
+
+html[data-booted] [data-preloader] {
+  display: none;
 }
 
 @layer base {

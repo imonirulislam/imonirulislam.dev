@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { activateOnKey } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { Skeleton } from "@/components/ui/skeleton";
 import {
   Calendar,
   ExternalLink,
@@ -25,20 +24,17 @@ export function ExperienceItem({
   role: Role;
   company: string;
 }) {
-  const [isDataLoading, setIsDataLoading] = useState(false);
   const isRolePresent = role.period.toLowerCase().includes("present");
 
-  const handleOpen = (open: boolean) => {
-    if (open) {
-      setIsDataLoading(true);
-      setTimeout(() => setIsDataLoading(false), 800);
-    }
-  };
-
   return (
-    <Dialog onOpenChange={handleOpen}>
+    <Dialog>
       <DialogTrigger asChild>
-        <div className="group/item bg-card border-border shadow-brutal brutal-lift relative cursor-pointer border-2 p-5">
+        <div
+          role="button"
+          tabIndex={0}
+          onKeyDown={activateOnKey}
+          className="group/item bg-card border-border shadow-brutal brutal-lift focus-visible:outline-primary relative cursor-pointer border-2 p-5 focus-visible:outline-2 focus-visible:outline-offset-4"
+        >
           {/* Role Connector Dot */}
           <div className="bg-pop-yellow border-border group-hover/item:bg-pop-pink absolute top-1/2 -left-[25px] h-3 w-3 -translate-y-1/2 border-2 transition-colors md:-left-[33px]" />
           <div className="bg-border/30 group-hover/item:bg-primary/30 absolute top-1/2 -left-[18px] h-px w-4 -translate-y-1/2 transition-colors md:-left-[27px] md:w-6" />
@@ -64,168 +60,101 @@ export function ExperienceItem({
       <DialogContent className="bg-background border-border max-w-2xl font-mono md:max-w-4xl">
         <DialogHeader>
           <div className="mb-2 flex items-center gap-2">
-            {isDataLoading ? (
-              <Skeleton className="bg-secondary h-9 w-9 rounded-lg" />
-            ) : (
-              <div className="bg-primary/10 rounded-lg p-2">
-                {role.icon && <role.icon className="text-primary h-5 w-5" />}
-              </div>
-            )}
-            {isDataLoading ? (
-              <Skeleton className="bg-secondary h-3 w-40" />
-            ) : (
-              <span className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
-                {isRolePresent ? "Role :: Active" : "Role :: Archived"}
-              </span>
-            )}
+            <div className="bg-primary/10 rounded-lg p-2">
+              {role.icon && <role.icon className="text-primary h-5 w-5" />}
+            </div>
+            <span className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
+              {isRolePresent ? "Role :: Active" : "Role :: Archived"}
+            </span>
           </div>
           <DialogTitle className="text-2xl font-bold tracking-tight">
-            {isDataLoading ? (
-              <Skeleton className="bg-secondary h-8 w-3/4" />
-            ) : (
-              role.title
-            )}
+            role.title
           </DialogTitle>
           <div className="text-muted-foreground flex flex-col gap-1 pt-1 text-sm">
-            {isDataLoading ? (
-              <>
-                <Skeleton className="bg-secondary h-4 w-1/3" />
-                <Skeleton className="bg-secondary h-3 w-1/4" />
-              </>
-            ) : (
-              <>
-                <span className="text-foreground font-semibold">{company}</span>
-                <span className="font-mono text-xs opacity-80">
-                  {role.period}
-                </span>
-              </>
-            )}
+            <>
+              <span className="text-foreground font-semibold">{company}</span>
+              <span className="font-mono text-xs opacity-80">
+                {role.period}
+              </span>
+            </>
           </div>
-          {isDataLoading ? (
-            <div className="space-y-2 pt-4">
-              <Skeleton className="bg-secondary h-4 w-full" />
-              <Skeleton className="bg-secondary h-4 w-5/6" />
-              <Skeleton className="bg-secondary h-4 w-4/5" />
-            </div>
-          ) : (
-            <DialogDescription className="text-muted-foreground pt-4 text-sm leading-relaxed">
-              {role.longDescription}
-            </DialogDescription>
-          )}
+          <DialogDescription className="text-muted-foreground pt-4 text-sm leading-relaxed">
+            {role.longDescription}
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6 py-6">
           <AnimatePresence mode="wait">
-            {isDataLoading ? (
-              <motion.div
-                key="skeleton-body"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="space-y-6"
-              >
-                <div className="space-y-3">
-                  <Skeleton className="bg-secondary h-3 w-40" />
-                  <div className="bg-secondary border-border space-y-2 rounded-lg border p-4 opacity-50">
-                    <Skeleton className="bg-secondary h-3 w-full" />
-                    <Skeleton className="bg-secondary h-3 w-5/6" />
-                    <Skeleton className="bg-secondary h-3 w-4/5" />
-                    <Skeleton className="bg-secondary h-3 w-full" />
-                  </div>
+            <motion.div
+              key="content-body"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="space-y-6"
+            >
+              <div className="space-y-3">
+                <h4 className="text-muted-foreground flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                  <Terminal className="h-3 w-3" /> Execute :: Key_Logs
+                </h4>
+                <div className="bg-secondary border-border space-y-2 rounded-lg border p-4">
+                  {role.logs.map((log, i) => (
+                    <div
+                      key={i}
+                      className="text-muted-foreground flex items-start gap-4 font-mono text-xs"
+                    >
+                      <span className="text-primary/70 shrink-0 font-bold">
+                        [$]
+                      </span>
+                      <span>{log}</span>
+                    </div>
+                  ))}
                 </div>
+              </div>
 
-                <div className="space-y-3">
-                  <Skeleton className="bg-secondary h-3 w-32" />
-                  <div className="flex flex-wrap gap-2">
-                    {[1, 2, 3, 4, 5, 6].map((i) => (
-                      <Skeleton
-                        key={i}
-                        className="bg-secondary h-6 w-16 rounded shadow-sm"
-                      />
-                    ))}
-                  </div>
+              <div className="space-y-3">
+                <h4 className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase">
+                  Stack :: Environment
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {role.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-secondary text-muted-foreground border-border rounded border px-2 py-1 text-[10px] tracking-wider uppercase"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
+              </div>
 
-                <div className="space-y-3">
-                  <Skeleton className="bg-secondary h-3 w-36" />
-                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    <Skeleton className="bg-secondary h-16 rounded-lg" />
-                    <Skeleton className="bg-secondary h-16 rounded-lg" />
-                  </div>
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="content-body"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="space-y-6"
-              >
+              {role.documents && role.documents.length > 0 && (
                 <div className="space-y-3">
                   <h4 className="text-muted-foreground flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                    <Terminal className="h-3 w-3" /> Execute :: Key_Logs
+                    <FileText className="h-3 w-3" /> Artifacts :: Documents
                   </h4>
-                  <div className="bg-secondary border-border space-y-2 rounded-lg border p-4">
-                    {role.logs.map((log, i) => (
-                      <div
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {role.documents.map((doc, i) => (
+                      <a
                         key={i}
-                        className="text-muted-foreground flex items-start gap-4 font-mono text-xs"
+                        href={doc.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-secondary border-border hover:border-primary hover:bg-secondary group/doc flex items-center gap-3 rounded-lg border p-3 transition-all"
                       >
-                        <span className="text-primary/70 shrink-0 font-bold">
-                          [$]
-                        </span>
-                        <span>{log}</span>
-                      </div>
+                        <div className="bg-primary/10 group-hover/doc:bg-primary/20 rounded p-1.5 transition-colors">
+                          <FileText className="text-primary h-4 w-4" />
+                        </div>
+                        <div className="flex-1 overflow-hidden">
+                          <p className="text-muted-foreground group-hover/doc:text-foreground truncate text-xs font-medium transition-colors">
+                            {doc.name}
+                          </p>
+                        </div>
+                        <Download className="text-muted-foreground h-3 w-3" />
+                      </a>
                     ))}
                   </div>
                 </div>
-
-                <div className="space-y-3">
-                  <h4 className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase">
-                    Stack :: Environment
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {role.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-secondary text-muted-foreground border-border rounded border px-2 py-1 text-[10px] tracking-wider uppercase"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {role.documents && role.documents.length > 0 && (
-                  <div className="space-y-3">
-                    <h4 className="text-muted-foreground flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                      <FileText className="h-3 w-3" /> Artifacts :: Documents
-                    </h4>
-                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                      {role.documents.map((doc, i) => (
-                        <a
-                          key={i}
-                          href={doc.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="bg-secondary border-border hover:border-primary hover:bg-secondary group/doc flex items-center gap-3 rounded-lg border p-3 transition-all"
-                        >
-                          <div className="bg-primary/10 group-hover/doc:bg-primary/20 rounded p-1.5 transition-colors">
-                            <FileText className="text-primary h-4 w-4" />
-                          </div>
-                          <div className="flex-1 overflow-hidden">
-                            <p className="text-muted-foreground group-hover/doc:text-foreground truncate text-xs font-medium transition-colors">
-                              {doc.name}
-                            </p>
-                          </div>
-                          <Download className="text-muted-foreground h-3 w-3" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            )}
+              )}
+            </motion.div>
           </AnimatePresence>
         </div>
       </DialogContent>

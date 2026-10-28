@@ -84,6 +84,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("MI_BOOTED"))document.documentElement.dataset.booted="1"}catch(e){}`,
+          }}
+        />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} selection:bg-pop-yellow relative antialiased selection:text-black`}
       >
