@@ -141,7 +141,7 @@ export function Navbar() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent className="border-border bg-background font-mono">
-                  <div className="mt-8 flex h-full flex-col gap-6 px-4 pb-20">
+                  <div className="mt-8 flex h-full flex-col gap-6 px-4 pb-6">
                     <div className="border-border border-b-2 pb-4">
                       <SheetTitle className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
                         Navigation_Module
