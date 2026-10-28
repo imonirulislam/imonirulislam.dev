@@ -251,9 +251,9 @@ export function HUDOverlay() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            className="fixed top-1/2 left-4 hidden -translate-y-1/2 flex-col items-center gap-4 md:left-8 md:flex"
+            className="fixed top-1/2 left-4 hidden w-20 -translate-y-1/2 flex-col items-center gap-4 md:left-4 md:flex"
           >
-            <span className="text-muted-foreground rotate-90 text-[8px] font-bold tracking-tighter">
+            <span className="text-muted-foreground text-[8px] font-bold tracking-tighter [writing-mode:vertical-rl]">
               SCROLL_PROGRESS
             </span>
             <div className="bg-card border-border relative h-32 w-3 overflow-hidden border-2">
