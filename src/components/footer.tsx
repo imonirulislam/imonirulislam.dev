@@ -86,13 +86,20 @@ export function Footer() {
           <p className="text-muted-foreground font-mono text-[10px] tracking-[0.3em] uppercase">
             © Monirul Islam // ROOT_ACCESS_GRANTED
           </p>
-          <button
-            onClick={() => window.dispatchEvent(new CustomEvent("open-snake"))}
-            className="bg-pop-pink border-border shadow-brutal brutal-press flex items-center gap-2 border-2 px-4 py-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
-          >
-            <Gamepad2 className="h-4 w-4" />
-            Insert_Coin
-          </button>
+          <div className="flex items-center gap-3">
+            <span className="text-muted-foreground hidden font-mono text-[10px] tracking-widest sm:inline">
+              ↑↑↓↓←→←→BA
+            </span>
+            <button
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-arcade"))
+              }
+              className="bg-pop-pink border-border shadow-brutal brutal-press flex items-center gap-2 border-2 px-4 py-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+            >
+              <Gamepad2 className="h-4 w-4" />
+              Insert_Coin
+            </button>
+          </div>
         </div>
       </div>
     </footer>

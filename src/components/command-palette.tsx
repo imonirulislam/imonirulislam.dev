@@ -53,7 +53,21 @@ const SYS_ACTIONS = [
 const EASTER_EGGS = [
   { id: "matrix", icon: Code, label: "Protocol: /matrix", shortcut: "EXE" },
   { id: "neofetch", icon: Zap, label: "Protocol: /neofetch", shortcut: "EXE" },
-  { id: "snake", icon: Gamepad2, label: "Protocol: /snake", shortcut: "EXE" },
+  { id: "arcade", icon: Gamepad2, label: "Protocol: /arcade", shortcut: "EXE" },
+  { id: "snake", icon: Gamepad2, label: "Arcade: /snake", shortcut: "EXE" },
+  {
+    id: "breakout",
+    icon: Gamepad2,
+    label: "Arcade: /breakout",
+    shortcut: "EXE",
+  },
+  { id: "2048", icon: Gamepad2, label: "Arcade: /2048", shortcut: "EXE" },
+  {
+    id: "match",
+    icon: Gamepad2,
+    label: "Arcade: /stack_match",
+    shortcut: "EXE",
+  },
 ];
 
 interface Action {
@@ -90,8 +104,16 @@ export function CommandPalette() {
         case "matrix":
           window.dispatchEvent(new CustomEvent("toggle-matrix"));
           break;
+        case "arcade":
+          window.dispatchEvent(new CustomEvent("open-arcade"));
+          break;
         case "snake":
-          window.dispatchEvent(new CustomEvent("open-snake"));
+        case "breakout":
+        case "2048":
+        case "match":
+          window.dispatchEvent(
+            new CustomEvent("open-arcade", { detail: { game: id } })
+          );
           break;
         case "neofetch":
           window.dispatchEvent(new CustomEvent("open-neofetch"));

@@ -57,6 +57,7 @@ export function Neofetch() {
     ["Font", "Space Grotesk, Space Mono"],
     ["Stack", "Node.js · AWS · Kubernetes · Terraform"],
     ["Role", "Senior Software Engineer"],
+    ["Cheat", "↑ ↑ ↓ ↓ ← → ← → B A"],
   ];
 
   return (

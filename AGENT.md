@@ -24,6 +24,8 @@
 - `src/components/preloader.tsx`: Brutalist `boot.sh` boot sequence shown before the page renders.
 - `src/components/command-palette.tsx`: Terminal-style navigation and system commands (Cmd+K).
 - `src/components/matrix-rain.tsx`: Full-screen digital rain Easter Egg.
+- `src/components/arcade/`: `arcade.exe` mini-game hub (Snake, Breakout, 2048, Stack Match), opened by the footer `INSERT_COIN` button, `/arcade` in the palette, an `open-arcade` window event, or the Konami code. Shared score/overlay/controls live in `shared.tsx`.
+- `src/components/neofetch.tsx`: Terminal-style system info panel (`/neofetch`).
 
 ## Development Workflow
 
