@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Gamepad2 } from "lucide-react";
 
 export function Footer() {
   const [load, setLoad] = useState([0.42, 0.38, 0.31]);
@@ -81,10 +82,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-border flex items-center justify-between border-t pt-8">
+        <div className="border-border flex flex-wrap items-center justify-between gap-4 border-t-2 pt-8">
           <p className="text-muted-foreground font-mono text-[10px] tracking-[0.3em] uppercase">
             © Monirul Islam // ROOT_ACCESS_GRANTED
           </p>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-snake"))}
+            className="bg-pop-pink border-border shadow-brutal brutal-press flex items-center gap-2 border-2 px-4 py-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+          >
+            <Gamepad2 className="h-4 w-4" />
+            Insert_Coin
+          </button>
         </div>
       </div>
     </footer>

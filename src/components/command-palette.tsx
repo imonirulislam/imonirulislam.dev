@@ -13,6 +13,7 @@ import {
   Monitor,
   Zap,
   Code,
+  Gamepad2,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -52,6 +53,7 @@ const SYS_ACTIONS = [
 const EASTER_EGGS = [
   { id: "matrix", icon: Code, label: "Protocol: /matrix", shortcut: "EXE" },
   { id: "neofetch", icon: Zap, label: "Protocol: /neofetch", shortcut: "EXE" },
+  { id: "snake", icon: Gamepad2, label: "Protocol: /snake", shortcut: "EXE" },
 ];
 
 interface Action {
@@ -87,6 +89,9 @@ export function CommandPalette() {
           break;
         case "matrix":
           window.dispatchEvent(new CustomEvent("toggle-matrix"));
+          break;
+        case "snake":
+          window.dispatchEvent(new CustomEvent("open-snake"));
           break;
         case "neofetch":
           alert(

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { MatrixRain } from "@/components/matrix-rain";
 import { HUDOverlay } from "@/components/hud-overlay";
 import { CommandPalette } from "@/components/command-palette";
+import { SnakeGame } from "@/components/snake-game";
 
 export function GlobalEffects() {
   const [showMatrix, setShowMatrix] = useState(false);
@@ -19,6 +20,7 @@ export function GlobalEffects() {
       {showMatrix && <MatrixRain />}
       <HUDOverlay />
       <CommandPalette />
+      <SnakeGame />
     </>
   );
 }
