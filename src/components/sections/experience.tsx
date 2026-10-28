@@ -38,7 +38,7 @@ export function Experience() {
           <h2 className="text-muted-foreground text-sm font-bold tracking-[0.3em] whitespace-nowrap uppercase">
             Trace :: Professional History
           </h2>
-          <div className="bg-border/40 h-px w-full" />
+          <div className="bg-border h-0.5 w-full" />
         </div>
 
         <div className="relative space-y-12">

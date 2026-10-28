@@ -40,7 +40,7 @@ export function Projects() {
             <h2 className="text-muted-foreground text-sm font-bold tracking-[0.3em] whitespace-nowrap uppercase">
               Deployments :: Projects
             </h2>
-            <div className="bg-border/40 h-px w-full" />
+            <div className="bg-border h-0.5 w-full" />
           </div>
         </div>
 
@@ -60,10 +60,10 @@ export function Projects() {
                   setFilter(cat);
                   setVisibleCount(6);
                 }}
-                className={`border px-3 py-1 font-mono text-[10px] transition-all duration-200 ${
+                className={`border-border border-2 px-3 py-1 font-mono text-[10px] font-bold transition-all duration-150 ${
                   filter === cat
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-secondary text-muted-foreground border-border hover:border-primary"
+                    ? "bg-pop-pink shadow-brutal-sm -translate-x-0.5 -translate-y-0.5 text-black"
+                    : "bg-card hover:bg-pop-yellow hover:text-black"
                 }`}
               >
                 {cat.toUpperCase()}
@@ -132,7 +132,7 @@ export function Projects() {
             <Button
               variant="outline"
               onClick={() => setVisibleCount((prev) => prev + 6)}
-              className="bg-background hover:bg-primary/10 hover:text-primary hover:border-primary border-primary text-muted-foreground gap-2 px-8 font-mono text-xs tracking-widest uppercase transition-all"
+              className="gap-2 px-8 font-mono text-xs tracking-widest uppercase"
             >
               <Brackets className="h-4 w-4 rotate-90" />
               Load_More_Nodes

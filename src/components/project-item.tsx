@@ -390,7 +390,7 @@ export function ProjectItem({ project }: { project: Project }) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-secondary hover:bg-secondary border-border flex flex-1 items-center justify-center gap-2 rounded-md border py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
+                  className="bg-card border-border shadow-brutal-sm brutal-press flex flex-1 items-center justify-center gap-2 border-2 py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
                 >
                   <SimpleIcon icon={siGithub} className="h-3.5 w-3.5" />{" "}
                   Source_Code
@@ -401,7 +401,7 @@ export function ProjectItem({ project }: { project: Project }) {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 flex flex-1 items-center justify-center gap-2 rounded-md py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
+                  className="bg-pop-yellow border-border shadow-brutal-sm brutal-press flex flex-1 items-center justify-center gap-2 border-2 py-2.5 text-[11px] font-bold tracking-widest text-black uppercase"
                 >
                   <Monitor className="h-3.5 w-3.5" /> Live_Demo
                 </a>

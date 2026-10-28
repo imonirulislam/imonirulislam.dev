@@ -109,7 +109,7 @@ export function Navbar() {
                 ONLINE
               </span>
             </div>
-            <div className="bg-border/40 h-3 w-px" />
+            <div className="h-3 w-0.5 bg-black" />
             <div className="flex items-center gap-1.5">
               <Globe className="h-3 w-3" />
               <span className="text-[9px] font-bold tracking-widest uppercase">
@@ -141,8 +141,8 @@ export function Navbar() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent className="border-border bg-background font-mono">
-                  <div className="mt-8 flex flex-col gap-6">
-                    <div className="border-border border-b pb-4">
+                  <div className="mt-8 flex h-full flex-col gap-6 px-4 pb-20">
+                    <div className="border-border border-b-2 pb-4">
                       <SheetTitle className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
                         Navigation_Module
                       </SheetTitle>
@@ -153,7 +153,7 @@ export function Navbar() {
                           <Link
                             href={item.href}
                             onClick={(e) => handleScroll(e, item.href)}
-                            className="bg-secondary hover:bg-secondary hover:text-primary text-muted-foreground hover:border-primary flex items-center justify-between rounded-md border border-transparent px-4 py-3 text-sm tracking-widest uppercase transition-all"
+                            className="bg-card border-border shadow-brutal-sm brutal-press hover:bg-pop-yellow flex items-center justify-between border-2 px-4 py-3 text-sm font-bold tracking-widest uppercase hover:text-black"
                           >
                             <span>{item.name}</span>
                             <span className="text-muted-foreground text-[10px]">
@@ -164,7 +164,7 @@ export function Navbar() {
                       ))}
                     </div>
 
-                    <div className="bg-secondary border-border mt-auto rounded-lg border p-4">
+                    <div className="bg-pop-lime border-border shadow-brutal mt-auto border-2 p-4 text-black [--foreground:oklch(0.15_0_0)] [--muted-foreground:oklch(0.32_0_0)]">
                       <div className="mb-3 flex items-center gap-2">
                         <div className="flex items-center gap-1.5">
                           <motion.div

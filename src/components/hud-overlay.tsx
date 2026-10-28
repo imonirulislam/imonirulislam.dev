@@ -150,7 +150,7 @@ export function HUDOverlay() {
   return (
     <div className="pointer-events-none fixed inset-0 z-70 flex flex-col justify-between p-4 font-mono text-[10px] tracking-widest uppercase md:p-8">
       {/* Top Right: Advanced Session Handshake Report (Expandable) */}
-      <div className="fixed top-4 right-4 flex flex-col items-end gap-1 md:top-20 md:right-8">
+      <div className="fixed right-4 bottom-4 flex flex-col items-end gap-1 md:top-20 md:right-8 md:bottom-auto">
         <AnimatePresence>
           {isSystemReady && (
             <motion.div
@@ -159,7 +159,7 @@ export function HUDOverlay() {
               onMouseLeave={() => setIsHovered(false)}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="group bg-background border-border hover:bg-background hover:border-primary pointer-events-auto flex flex-col items-start gap-1.5 rounded-sm border p-2 shadow-2xl transition-colors duration-300"
+              className="group bg-card border-border shadow-brutal pointer-events-auto flex flex-col items-start gap-1.5 border-2 p-2"
             >
               {/* Compact View / Header */}
               <motion.div layout className="flex w-full items-center gap-3">
@@ -182,14 +182,14 @@ export function HUDOverlay() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="border-border mt-1 w-full space-y-3 overflow-hidden border-t pt-3"
+                  className="border-border mt-1 w-full space-y-3 overflow-hidden border-t-2 pt-3"
                 >
                   <div className="grid w-full grid-cols-2 gap-x-6 gap-y-2 text-[8px]">
                     <div className="flex flex-col gap-1">
                       <span className="text-muted-foreground font-bold">
                         AUTHORIZATION
                       </span>
-                      <span className="font-bold text-emerald-500">
+                      <span className="bg-pop-lime border-border w-fit border px-1 font-bold text-black">
                         LVL_01_SECURE
                       </span>
                     </div>
@@ -197,13 +197,13 @@ export function HUDOverlay() {
                       <span className="text-muted-foreground font-bold">
                         SESSION_TOKEN
                       </span>
-                      <span className="text-foreground/70">{sessionId}</span>
+                      <span className="text-foreground">{sessionId}</span>
                     </div>
                     <div className="flex flex-col gap-1">
                       <span className="text-muted-foreground font-bold">
                         TOTAL_ACCESS
                       </span>
-                      <span className="text-foreground/70">
+                      <span className="text-foreground">
                         {visitCount.toString().padStart(2, "0")}_IDENTIFIED
                       </span>
                     </div>
@@ -217,7 +217,7 @@ export function HUDOverlay() {
                     </div>
                   </div>
 
-                  <div className="border-border flex w-full items-center justify-between border-t pt-2 text-[7px]">
+                  <div className="border-border flex w-full items-center justify-between border-t-2 pt-2 text-[7px]">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="text-primary h-3 w-3" />
                       <span className="text-muted-foreground">
@@ -256,14 +256,14 @@ export function HUDOverlay() {
             <span className="text-muted-foreground rotate-90 text-[8px] font-bold tracking-tighter">
               SCROLL_PROGRESS
             </span>
-            <div className="bg-secondary relative h-32 w-px overflow-hidden">
+            <div className="bg-card border-border relative h-32 w-3 overflow-hidden border-2">
               <motion.div
                 style={{ scaleY: smoothProgress }}
-                className="from-primary to-primary/40 absolute top-0 w-full origin-top bg-gradient-to-b"
+                className="bg-pop-pink absolute inset-0 origin-top"
               />
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-primary font-bold">
+              <span className="bg-pop-yellow border-border border-2 px-1 font-bold text-black">
                 {Math.round(displayProgress * 100)}%
               </span>
               <span className="text-muted-foreground text-[7px] tracking-tighter">
@@ -289,7 +289,7 @@ export function HUDOverlay() {
             key="global-top-bar"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-primary fixed top-0 left-0 z-80 h-0.5 w-full origin-left"
+            className="bg-pop-pink fixed top-0 left-0 z-80 h-1 w-full origin-left"
             style={{ scaleX: smoothProgress }}
           />
         )}

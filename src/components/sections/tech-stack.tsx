@@ -112,7 +112,7 @@ export function TechStack() {
                   SYSTEM_HEALTH_OK
                 </div>
                 <div className="mt-4 space-y-2">
-                  <div className="bg-primary/20 h-1 w-full overflow-hidden rounded-full">
+                  <div className="bg-card border-border h-3 w-full overflow-hidden border-2">
                     <motion.div
                       animate={{ x: ["-100%", "100%"] }}
                       transition={{
@@ -120,7 +120,7 @@ export function TechStack() {
                         repeat: Infinity,
                         ease: "linear",
                       }}
-                      className="bg-primary h-full w-1/2"
+                      className="bg-pop-lime h-full w-1/2"
                     />
                   </div>
                   <span className="text-muted-foreground font-mono text-[8px]">
