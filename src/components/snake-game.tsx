@@ -12,6 +12,21 @@ import {
 const GRID = 18;
 const CANVAS_PX = 648;
 const BEST_KEY = "MI_SNAKE_BEST";
+// Food is pink and the head is yellow, so the body never cycles through those.
+const BODY_COLORS = ["--pop-lime", "--pop-cyan", "--primary"];
+
+const KONAMI = [
+  "arrowup",
+  "arrowup",
+  "arrowdown",
+  "arrowdown",
+  "arrowleft",
+  "arrowright",
+  "arrowleft",
+  "arrowright",
+  "b",
+  "a",
+];
 
 type Point = { x: number; y: number };
 type Status = "idle" | "playing" | "paused" | "over";
@@ -127,7 +142,9 @@ export function SnakeGame() {
       .forEach((p, i, arr) =>
         block(
           p,
-          i === arr.length - 1 ? color("--pop-yellow") : color("--pop-lime")
+          i === arr.length - 1
+            ? color("--pop-yellow")
+            : color(BODY_COLORS[scoreRef.current % BODY_COLORS.length])
         )
       );
   }, []);
@@ -202,8 +219,25 @@ export function SnakeGame() {
       setBest(bestRef.current);
       setIsOpen(true);
     };
+    let progress = 0;
+    const onKonami = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("input, textarea, [contenteditable=true]")) return;
+      const key = e.key.toLowerCase();
+      progress =
+        key === KONAMI[progress] ? progress + 1 : key === KONAMI[0] ? 1 : 0;
+      if (progress === KONAMI.length) {
+        progress = 0;
+        open();
+      }
+    };
+
     window.addEventListener("open-snake", open);
-    return () => window.removeEventListener("open-snake", open);
+    window.addEventListener("keydown", onKonami);
+    return () => {
+      window.removeEventListener("open-snake", open);
+      window.removeEventListener("keydown", onKonami);
+    };
   }, []);
 
   useEffect(() => {

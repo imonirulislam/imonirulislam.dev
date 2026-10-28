@@ -5,6 +5,7 @@ import { MatrixRain } from "@/components/matrix-rain";
 import { HUDOverlay } from "@/components/hud-overlay";
 import { CommandPalette } from "@/components/command-palette";
 import { SnakeGame } from "@/components/snake-game";
+import { Neofetch } from "@/components/neofetch";
 
 export function GlobalEffects() {
   const [showMatrix, setShowMatrix] = useState(false);
@@ -21,6 +22,7 @@ export function GlobalEffects() {
       <HUDOverlay />
       <CommandPalette />
       <SnakeGame />
+      <Neofetch />
     </>
   );
 }

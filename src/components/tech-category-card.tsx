@@ -27,7 +27,7 @@ export function TechCategoryCard({ category }: TechCategoryCardProps) {
             <span className="text-muted-foreground group-hover/item:text-foreground font-mono text-xs tracking-tighter whitespace-nowrap transition-colors">
               {item.name}
             </span>
-            <span className="bg-muted border-border group-hover/item:bg-pop-lime border px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-tighter whitespace-nowrap uppercase transition-all group-hover/item:text-black">
+            <span className="bg-muted border-border group-hover/item:bg-pop-lime border px-1.5 py-0.5 font-mono text-[10px] font-bold tracking-tighter whitespace-nowrap uppercase transition-all group-hover/item:text-black">
               {item.version}
             </span>
           </div>

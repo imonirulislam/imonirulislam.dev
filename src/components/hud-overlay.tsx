@@ -165,11 +165,13 @@ export function HUDOverlay() {
               <motion.div layout className="flex w-full items-center gap-3">
                 <div className="text-primary flex items-center gap-2 font-bold">
                   <Terminal className="h-3.5 w-3.5" />
-                  <span className="text-[9px]">GUEST::{guestId}</span>
+                  <span className="text-[10px]">GUEST::{guestId}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
-                  <span className="text-muted-foreground text-[7px]">LIVE</span>
+                  <span className="text-muted-foreground text-[10px]">
+                    LIVE
+                  </span>
                 </div>
                 {!isHovered && (
                   <ChevronDown className="text-muted-foreground h-3 w-3 animate-bounce" />
@@ -184,7 +186,7 @@ export function HUDOverlay() {
                   exit={{ opacity: 0, height: 0 }}
                   className="border-border mt-1 w-full space-y-3 overflow-hidden border-t-2 pt-3"
                 >
-                  <div className="grid w-full grid-cols-2 gap-x-6 gap-y-2 text-[8px]">
+                  <div className="grid w-full grid-cols-2 gap-x-6 gap-y-2 text-[10px]">
                     <div className="flex flex-col gap-1">
                       <span className="text-muted-foreground font-bold">
                         AUTHORIZATION
@@ -217,7 +219,7 @@ export function HUDOverlay() {
                     </div>
                   </div>
 
-                  <div className="border-border flex w-full items-center justify-between border-t-2 pt-2 text-[7px]">
+                  <div className="border-border flex w-full items-center justify-between border-t-2 pt-2 text-[10px]">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="text-primary h-3 w-3" />
                       <span className="text-muted-foreground">
@@ -253,7 +255,7 @@ export function HUDOverlay() {
             exit={{ opacity: 0, x: -20 }}
             className="fixed top-1/2 left-4 hidden w-20 -translate-y-1/2 flex-col items-center gap-4 md:left-4 md:flex"
           >
-            <span className="text-muted-foreground text-[8px] font-bold tracking-tighter [writing-mode:vertical-rl]">
+            <span className="text-muted-foreground text-[10px] font-bold tracking-tighter [writing-mode:vertical-rl]">
               SCROLL_PROGRESS
             </span>
             <div className="bg-card border-border relative h-32 w-3 overflow-hidden border-2">
@@ -266,7 +268,7 @@ export function HUDOverlay() {
               <span className="bg-pop-yellow border-border border-2 px-1 font-bold text-black">
                 {Math.round(displayProgress * 100)}%
               </span>
-              <span className="text-muted-foreground text-[7px] tracking-tighter">
+              <span className="text-muted-foreground text-[10px] tracking-tighter">
                 /{section}
               </span>
             </div>
@@ -278,7 +280,7 @@ export function HUDOverlay() {
       <div className="fixed bottom-4 left-4 flex items-center gap-3 opacity-30 md:bottom-8 md:left-8">
         <div className="flex items-center gap-1.5">
           <Activity className="h-3 w-3" />
-          <span className="text-[7px]">TELEMETRY_STREAM_ACTIVE</span>
+          <span className="text-[10px]">TELEMETRY_STREAM_ACTIVE</span>
         </div>
       </div>
 

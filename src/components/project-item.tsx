@@ -124,7 +124,7 @@ export function ProjectItem({ project }: { project: Project }) {
                 {!hasImages && (
                   <Badge
                     variant="outline"
-                    className="bg-primary/10 text-primary border-primary px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-sm"
+                    className="bg-primary/10 text-primary border-primary px-2 py-0.5 font-mono text-[10px] tracking-widest shadow-sm"
                   >
                     DATA_ONLY_MODE
                   </Badge>
@@ -206,7 +206,7 @@ export function ProjectItem({ project }: { project: Project }) {
                       <div className="absolute right-4 bottom-4">
                         <Badge
                           variant="outline"
-                          className="bg-background border-primary px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-xl"
+                          className="bg-background border-primary px-2 py-0.5 font-mono text-[10px] tracking-widest shadow-xl"
                         >
                           ASSET_0{currentImage + 1}/0{project.images.length}
                         </Badge>
@@ -326,7 +326,7 @@ export function ProjectItem({ project }: { project: Project }) {
           </>
         </div>
 
-        <div className="text-muted-foreground flex items-center justify-between pt-4 text-[9px] tracking-widest uppercase">
+        <div className="text-muted-foreground flex items-center justify-between pt-4 text-[10px] tracking-widest uppercase">
           <span>Build_Status: Stable</span>
           <span>Environment: Production</span>
         </div>

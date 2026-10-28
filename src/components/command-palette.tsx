@@ -94,9 +94,7 @@ export function CommandPalette() {
           window.dispatchEvent(new CustomEvent("open-snake"));
           break;
         case "neofetch":
-          alert(
-            "System Architecture: Monirul-OS v4.2\nKernel: imonirul-core-1.0.0\nUptime: 99.9%\nTheme: Geist-Mono\nStatus: Authorized"
-          );
+          window.dispatchEvent(new CustomEvent("open-neofetch"));
           break;
       }
       setIsOpen(false);
@@ -160,7 +158,7 @@ export function CommandPalette() {
                 />
                 <div className="border-border flex items-center gap-1.5 rounded-sm border px-1.5 py-0.5">
                   <Command className="text-muted-foreground h-2.5 w-2.5" />
-                  <span className="text-muted-foreground font-mono text-[9px] uppercase">
+                  <span className="text-muted-foreground font-mono text-[10px] uppercase">
                     K
                   </span>
                 </div>
@@ -222,18 +220,18 @@ export function CommandPalette() {
 
               <div className="bg-secondary border-border flex items-center justify-between border-t p-3">
                 <div className="flex items-center gap-4">
-                  <div className="text-muted-foreground flex items-center gap-1.5 font-mono text-[9px]">
+                  <div className="text-muted-foreground flex items-center gap-1.5 font-mono text-[10px]">
                     <kbd className="border-border rounded border px-1">↑↓</kbd>
                     <span>Navigate</span>
                   </div>
-                  <div className="text-muted-foreground flex items-center gap-1.5 font-mono text-[9px]">
+                  <div className="text-muted-foreground flex items-center gap-1.5 font-mono text-[10px]">
                     <kbd className="border-border rounded border px-1">
                       ENTER
                     </kbd>
                     <span>Execute</span>
                   </div>
                 </div>
-                <div className="text-muted-foreground flex items-center gap-1 font-mono text-[9px] tracking-tighter uppercase">
+                <div className="text-muted-foreground flex items-center gap-1 font-mono text-[10px] tracking-tighter uppercase">
                   <Monitor className="h-3 w-3" />
                   <span>SYSTEM_V4.2</span>
                 </div>

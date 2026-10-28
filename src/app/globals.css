@@ -146,6 +146,20 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .animate-pulse,
+  .animate-bounce {
+    animation: none !important;
+  }
+  .brutal-press,
+  .brutal-lift {
+    transition: none !important;
+  }
+}
+
 html[data-booted] [data-preloader] {
   display: none;
 }

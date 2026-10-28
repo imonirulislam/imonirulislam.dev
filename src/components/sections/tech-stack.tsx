@@ -78,7 +78,7 @@ export function TechStack() {
                     className="bg-pop-lime h-full w-1/2"
                   />
                 </div>
-                <span className="text-muted-foreground font-mono text-[8px]">
+                <span className="text-muted-foreground font-mono text-[10px]">
                   SCANNING_PROTOCOLS...
                 </span>
               </div>
@@ -88,7 +88,7 @@ export function TechStack() {
 
         <div className="mt-12 flex items-center justify-center">
           <div className="bg-border h-0.5 flex-1" />
-          <div className="text-muted-foreground px-6 font-mono text-[9px] tracking-[0.4em] uppercase antialiased">
+          <div className="text-muted-foreground px-6 font-mono text-[10px] tracking-[0.4em] uppercase antialiased">
             End_of_Inventory_Stream
           </div>
           <div className="bg-border h-0.5 flex-1" />

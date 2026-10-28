@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
 import { MoveUpRight, Globe, Menu } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -20,6 +20,7 @@ const navItems = [
 ];
 
 export function Navbar() {
+  const reduceMotion = useReducedMotion();
   const handleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -93,7 +94,7 @@ export function Navbar() {
                   <motion.div
                     key={i}
                     animate={{
-                      height: ["20%", "100%", "20%"],
+                      height: reduceMotion ? "60%" : ["20%", "100%", "20%"],
                     }}
                     transition={{
                       duration: 1,
@@ -105,14 +106,14 @@ export function Navbar() {
                   />
                 ))}
               </div>
-              <span className="ml-1 text-[9px] font-bold tracking-widest uppercase">
+              <span className="ml-1 text-[10px] font-bold tracking-widest uppercase">
                 ONLINE
               </span>
             </div>
             <div className="h-3 w-0.5 bg-black" />
             <div className="flex items-center gap-1.5">
               <Globe className="h-3 w-3" />
-              <span className="text-[9px] font-bold tracking-widest uppercase">
+              <span className="text-[10px] font-bold tracking-widest uppercase">
                 BD-DHK-01
               </span>
             </div>
@@ -177,7 +178,9 @@ export function Navbar() {
                               <motion.div
                                 key={i}
                                 animate={{
-                                  height: ["20%", "100%", "20%"],
+                                  height: reduceMotion
+                                    ? "60%"
+                                    : ["20%", "100%", "20%"],
                                 }}
                                 transition={{
                                   duration: 1,

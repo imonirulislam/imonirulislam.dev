@@ -46,7 +46,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-4">
             {stats.map((stat) => (
               <div key={stat.label} className="space-y-1">
-                <p className="text-muted-foreground font-mono text-[9px] tracking-tighter uppercase">
+                <p className="text-muted-foreground font-mono text-[10px] tracking-tighter uppercase">
                   {stat.label}
                 </p>
                 <p className="text-muted-foreground font-mono text-[11px] font-bold">
@@ -77,7 +77,7 @@ export function Footer() {
               ))}
             </div>
             <p className="text-muted-foreground font-mono text-[10px]">
-              VER :: 2.4.0-STABLE-{new Date().getFullYear()}
+              VER :: {process.env.NEXT_PUBLIC_APP_VERSION}-STABLE
             </p>
           </div>
         </div>

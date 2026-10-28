@@ -190,7 +190,7 @@ export function Hero() {
                 </div>
 
                 <div className="bg-muted border-border flex items-center justify-between border-t-2 p-4 px-6">
-                  <div className="text-muted-foreground font-mono text-[9px] tracking-widest uppercase">
+                  <div className="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
                     Social_Interfaces:
                   </div>
                   <div className="flex gap-4">
