@@ -14,7 +14,7 @@
   - [Tailwind CSS 4](https://tailwindcss.com/)
   - [Shadcn UI](https://ui.shadcn.com/) (Component library)
   - [Framer Motion](https://www.framer.com/motion/) (Animations)
-- **Runtime**: Node.js >=22.17.0
+- **Runtime**: Node.js >=24.22.1 (LTS, see `.nvmrc`)
 - **Package Manager**: [Bun](https://bun.sh/) (Lockfile: `bun.lockb`)
 
 ## Key Architecture & Components
