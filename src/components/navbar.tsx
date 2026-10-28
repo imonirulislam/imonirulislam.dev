@@ -42,7 +42,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b font-mono backdrop-blur-md">
+    <header className="border-border bg-background sticky top-0 z-50 w-full border-b-2 font-mono">
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
         <div className="flex items-center gap-8">
           <Link
@@ -69,7 +69,7 @@ export function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleScroll(e, item.href)}
-                className="text-muted-foreground hover:text-primary group relative flex items-center py-1 text-[10px] font-medium tracking-[0.2em] uppercase transition-all"
+                className="hover:bg-pop-yellow hover:border-border group relative flex items-center border-2 border-transparent px-2 py-1 text-[10px] font-bold tracking-[0.2em] uppercase transition-all hover:text-black"
               >
                 <span className="text-primary mr-1 -ml-2 opacity-0 transition-all duration-300 group-hover:ml-0 group-hover:opacity-100">
                   {">"}
@@ -81,12 +81,12 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="bg-secondary/20 border-border/30 hidden items-center gap-3 rounded-sm border px-3 py-1 lg:flex">
+          <div className="bg-pop-lime border-border shadow-brutal-sm hidden items-center gap-3 border-2 px-3 py-1 text-black lg:flex">
             <div className="flex items-center gap-1.5">
               <motion.div
                 animate={{ opacity: [1, 0.5, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_rgba(16,185,129,0.5)] dark:bg-emerald-500"
+                className="h-1.5 w-1.5 rounded-full bg-emerald-700"
               />
               <div className="flex h-2 items-center gap-1">
                 {[...Array(4)].map((_, i) => (
@@ -101,24 +101,24 @@ export function Navbar() {
                       delay: i * 0.15,
                       ease: "easeInOut",
                     }}
-                    className="w-0.5 rounded-full bg-emerald-600 dark:bg-emerald-500"
+                    className="w-0.5 rounded-full bg-emerald-700"
                   />
                 ))}
               </div>
-              <span className="text-muted-foreground ml-1 text-[9px] font-bold tracking-widest uppercase">
+              <span className="ml-1 text-[9px] font-bold tracking-widest uppercase">
                 ONLINE
               </span>
             </div>
             <div className="bg-border/40 h-3 w-px" />
             <div className="flex items-center gap-1.5">
-              <Globe className="text-muted-foreground/50 h-3 w-3" />
-              <span className="text-muted-foreground text-[9px] font-bold tracking-widest uppercase">
+              <Globe className="h-3 w-3" />
+              <span className="text-[9px] font-bold tracking-widest uppercase">
                 BD-DHK-01
               </span>
             </div>
           </div>
 
-          <div className="border-border/40 flex items-center gap-3 border-l pl-4">
+          <div className="border-border flex items-center gap-3 border-l-2 pl-4">
             <ModeToggle />
             <Link
               href="https://github.com/imonirulislam"
@@ -140,9 +140,9 @@ export function Navbar() {
                     <Menu className="h-4 w-4" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent className="border-border/50 bg-background/95 font-mono backdrop-blur-xl">
+                <SheetContent className="border-border bg-background font-mono">
                   <div className="mt-8 flex flex-col gap-6">
-                    <div className="border-border/20 border-b pb-4">
+                    <div className="border-border border-b pb-4">
                       <SheetTitle className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
                         Navigation_Module
                       </SheetTitle>
@@ -153,10 +153,10 @@ export function Navbar() {
                           <Link
                             href={item.href}
                             onClick={(e) => handleScroll(e, item.href)}
-                            className="bg-secondary/10 hover:bg-secondary/30 hover:text-primary text-muted-foreground hover:border-primary/20 flex items-center justify-between rounded-md border border-transparent px-4 py-3 text-sm tracking-widest uppercase transition-all"
+                            className="bg-secondary hover:bg-secondary hover:text-primary text-muted-foreground hover:border-primary flex items-center justify-between rounded-md border border-transparent px-4 py-3 text-sm tracking-widest uppercase transition-all"
                           >
                             <span>{item.name}</span>
-                            <span className="text-muted-foreground/30 text-[10px]">
+                            <span className="text-muted-foreground text-[10px]">
                               0{i + 1}
                             </span>
                           </Link>
@@ -164,13 +164,13 @@ export function Navbar() {
                       ))}
                     </div>
 
-                    <div className="bg-secondary/5 border-border/30 mt-auto rounded-lg border p-4">
+                    <div className="bg-secondary border-border mt-auto rounded-lg border p-4">
                       <div className="mb-3 flex items-center gap-2">
                         <div className="flex items-center gap-1.5">
                           <motion.div
                             animate={{ opacity: [1, 0.5, 1] }}
                             transition={{ duration: 2, repeat: Infinity }}
-                            className="h-1.5 w-1.5 rounded-full bg-emerald-600 shadow-[0_0_8px_rgba(16,185,129,0.5)] dark:bg-emerald-500"
+                            className="h-1.5 w-1.5 rounded-full bg-emerald-700"
                           />
                           <div className="flex h-2 items-center gap-1">
                             {[...Array(4)].map((_, i) => (
@@ -185,7 +185,7 @@ export function Navbar() {
                                   delay: i * 0.15,
                                   ease: "easeInOut",
                                 }}
-                                className="w-0.5 rounded-full bg-emerald-600 dark:bg-emerald-500"
+                                className="w-0.5 rounded-full bg-emerald-700"
                               />
                             ))}
                           </div>
@@ -194,7 +194,7 @@ export function Navbar() {
                           ONLINE
                         </span>
                       </div>
-                      <div className="text-muted-foreground/60 space-y-2 text-[10px] tracking-wider uppercase">
+                      <div className="text-muted-foreground space-y-2 text-[10px] tracking-wider uppercase">
                         <div className="flex justify-between">
                           <span>Node:</span>
                           <span className="text-foreground font-mono">

@@ -130,21 +130,21 @@ export function CommandPalette() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="bg-background/80 absolute inset-0 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/60"
             />
 
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="bg-secondary/40 border-border/50 relative w-full max-w-lg overflow-hidden rounded-xl border p-2 shadow-2xl backdrop-blur-xl"
+              className="bg-card border-border shadow-brutal-lg relative w-full max-w-lg overflow-hidden border-2 p-2"
             >
-              <div className="border-border/30 flex items-center gap-3 border-b p-3">
+              <div className="border-border flex items-center gap-3 border-b p-3">
                 <Search className="text-muted-foreground h-4 w-4" />
                 <input
                   autoFocus
                   placeholder="Execute command or search..."
-                  className="placeholder:text-muted-foreground/40 w-full bg-transparent font-mono text-sm outline-none"
+                  className="placeholder:text-muted-foreground w-full bg-transparent font-mono text-sm outline-none"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   onKeyDown={(e) => {
@@ -153,7 +153,7 @@ export function CommandPalette() {
                     }
                   }}
                 />
-                <div className="border-border/30 flex items-center gap-1.5 rounded-sm border px-1.5 py-0.5">
+                <div className="border-border flex items-center gap-1.5 rounded-sm border px-1.5 py-0.5">
                   <Command className="text-muted-foreground h-2.5 w-2.5" />
                   <span className="text-muted-foreground font-mono text-[9px] uppercase">
                     K
@@ -207,30 +207,28 @@ export function CommandPalette() {
 
                 {filteredActions.length === 0 && (
                   <div className="p-8 text-center">
-                    <Terminal className="text-muted-foreground/20 mx-auto mb-4 h-8 w-8" />
-                    <p className="text-muted-foreground/60 font-mono text-sm">
+                    <Terminal className="text-muted-foreground mx-auto mb-4 h-8 w-8" />
+                    <p className="text-muted-foreground font-mono text-sm">
                       No protocols found for &apos;{search}&apos;
                     </p>
                   </div>
                 )}
               </div>
 
-              <div className="bg-secondary/30 border-border/30 flex items-center justify-between border-t p-3">
+              <div className="bg-secondary border-border flex items-center justify-between border-t p-3">
                 <div className="flex items-center gap-4">
-                  <div className="text-muted-foreground/60 flex items-center gap-1.5 font-mono text-[9px]">
-                    <kbd className="border-border/50 rounded border px-1">
-                      ↑↓
-                    </kbd>
+                  <div className="text-muted-foreground flex items-center gap-1.5 font-mono text-[9px]">
+                    <kbd className="border-border rounded border px-1">↑↓</kbd>
                     <span>Navigate</span>
                   </div>
-                  <div className="text-muted-foreground/60 flex items-center gap-1.5 font-mono text-[9px]">
-                    <kbd className="border-border/50 rounded border px-1">
+                  <div className="text-muted-foreground flex items-center gap-1.5 font-mono text-[9px]">
+                    <kbd className="border-border rounded border px-1">
                       ENTER
                     </kbd>
                     <span>Execute</span>
                   </div>
                 </div>
-                <div className="text-muted-foreground/30 flex items-center gap-1 font-mono text-[9px] tracking-tighter uppercase">
+                <div className="text-muted-foreground flex items-center gap-1 font-mono text-[9px] tracking-tighter uppercase">
                   <Monitor className="h-3 w-3" />
                   <span>SYSTEM_V4.2</span>
                 </div>
@@ -259,7 +257,7 @@ function ActionItem({
         <action.icon className="text-muted-foreground group-hover:text-primary h-4 w-4 transition-colors" />
         <span className="text-sm">{action.label}</span>
       </div>
-      <span className="text-muted-foreground/40 group-hover:text-primary/60 text-[10px]">
+      <span className="text-muted-foreground group-hover:text-primary/60 text-[10px]">
         {action.shortcut}
       </span>
     </button>

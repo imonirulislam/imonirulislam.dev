@@ -32,7 +32,6 @@ export function Experience() {
       className="relative scroll-mt-20 overflow-hidden py-24"
     >
       {/* Background element */}
-      <div className="from-border/0 via-border/20 to-border/0 absolute top-0 left-1/2 -z-10 h-full w-px -translate-x-1/2 bg-gradient-to-b" />
 
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-20 flex items-center gap-4">
@@ -44,7 +43,7 @@ export function Experience() {
 
         <div className="relative space-y-12">
           {/* Timeline Spine */}
-          <div className="from-border/0 via-border/20 to-border/0 absolute top-0 -bottom-12 left-[16px] -z-10 w-px -translate-x-1/2 bg-gradient-to-b md:left-[24px]" />
+          <div className="bg-border absolute top-0 -bottom-12 left-[16px] -z-10 w-0.5 -translate-x-1/2 md:left-[24px]" />
 
           <AnimatePresence mode="wait">
             {isLoading ? (
@@ -60,12 +59,12 @@ export function Experience() {
                     key={i}
                     className="relative flex flex-col gap-4 pl-8 md:gap-8 md:pl-12"
                   >
-                    <div className="bg-secondary/30 absolute top-[24px] left-[16px] h-3 w-3 -translate-x-1/2 rounded-full md:left-[24px]" />
+                    <div className="bg-secondary absolute top-[24px] left-[16px] h-3 w-3 -translate-x-1/2 rounded-full md:left-[24px]" />
                     <div className="flex-1">
-                      <div className="bg-secondary/5 border-border/40 space-y-4 rounded-lg border p-6">
-                        <Skeleton className="bg-secondary/10 h-6 w-1/3" />
-                        <Skeleton className="bg-secondary/10 h-4 w-1/4" />
-                        <Skeleton className="bg-secondary/10 h-4 w-full" />
+                      <div className="bg-secondary border-border space-y-4 rounded-lg border p-6">
+                        <Skeleton className="bg-secondary h-6 w-1/3" />
+                        <Skeleton className="bg-secondary h-4 w-1/4" />
+                        <Skeleton className="bg-secondary h-4 w-full" />
                       </div>
                     </div>
                   </div>
@@ -92,7 +91,7 @@ export function Experience() {
                       {/* Company Spine Node */}
                       <div className="absolute top-[24px] left-[16px] z-10 flex -translate-x-1/2 items-center justify-center md:left-[24px]">
                         <div
-                          className={`border-background h-4 w-4 rounded-full border-4 transition-colors duration-300 ${isPresent(companyData.totalPeriod) ? "bg-primary shadow-[0_0_10px_rgba(var(--primary),0.8)]" : "bg-muted-foreground/30 group-hover/company:bg-primary/50"}`}
+                          className={`border-background h-4 w-4 rounded-full border-4 transition-colors duration-300 ${isPresent(companyData.totalPeriod) ? "bg-primary" : "bg-muted-foreground/30 group-hover/company:bg-primary/50"}`}
                         />
                       </div>
 
@@ -111,7 +110,7 @@ export function Experience() {
                       </div>
 
                       {/* Nested Roles Cluster */}
-                      <div className="border-border/40 relative ml-3 space-y-8 border-l-2 border-dashed pl-4 md:ml-6 md:pl-6">
+                      <div className="border-border relative ml-3 space-y-8 border-l-2 border-dashed pl-4 md:ml-6 md:pl-6">
                         {companyData.roles.map((role) => (
                           <ExperienceItem
                             key={role.title + role.period}

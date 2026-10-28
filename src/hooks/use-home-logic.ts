@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export function useHomeLogic() {
   const [loading, setLoading] = useState(true);
 
-  const handleLoadingComplete = () => {
+  const handleLoadingComplete = useCallback(() => {
     setLoading(false);
-  };
+  }, []);
 
   return {
     loading,

@@ -14,7 +14,7 @@ function TechStackSkeleton() {
       {[1, 2, 3, 4].map((i) => (
         <div
           key={i}
-          className="bg-secondary/10 border-border/50 h-[200px] w-full max-w-[340px] min-w-[250px] flex-1 rounded-lg border p-6"
+          className="bg-secondary border-border h-[200px] w-full max-w-[340px] min-w-[250px] flex-1 rounded-lg border p-6"
         >
           <div className="mb-6 flex items-center gap-3">
             <Skeleton className="h-8 w-8 rounded-md" />
@@ -45,7 +45,7 @@ export function TechStack() {
   return (
     <section id="tech" className="scroll-mt-20 py-20">
       <div className="container mx-auto max-w-5xl px-4">
-        <div className="border-border/40 mb-12 flex flex-col justify-between gap-4 border-b pb-8 md:flex-row md:items-end">
+        <div className="border-border mb-12 flex flex-col justify-between gap-4 border-b pb-8 md:flex-row md:items-end">
           <div>
             <div className="text-primary mb-2 flex items-center gap-2 font-mono text-xs tracking-widest uppercase">
               <Terminal className="h-3 w-3" /> system_stack_inventory
@@ -54,7 +54,7 @@ export function TechStack() {
               Technology Stack
             </h2>
           </div>
-          <div className="text-muted-foreground/60 bg-secondary/20 border-border/50 flex items-center gap-2 rounded-sm border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase">
+          <div className="text-muted-foreground bg-secondary border-border flex items-center gap-2 rounded-sm border px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase">
             <ShieldCheck className="h-3 w-3 text-emerald-500" />{" "}
             Authorized_Toolchain_Report
           </div>
@@ -93,7 +93,6 @@ export function TechStack() {
                   >
                     <Magnetic>
                       <div className="h-full w-full">
-                        <div className="from-primary/10 absolute -inset-0.5 rounded-lg bg-gradient-to-b to-transparent opacity-0 blur transition duration-500 group-hover:opacity-100" />
                         <TechCategoryCard category={category} />
                       </div>
                     </Magnetic>
@@ -106,7 +105,7 @@ export function TechStack() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-secondary/10 border-border/50 hidden flex-col justify-between rounded-lg border p-6 lg:flex"
+                className="bg-secondary border-border hidden flex-col justify-between rounded-lg border p-6 lg:flex"
               >
                 <div className="flex items-center gap-3 font-mono text-xs">
                   <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
@@ -124,7 +123,7 @@ export function TechStack() {
                       className="bg-primary h-full w-1/2"
                     />
                   </div>
-                  <span className="text-muted-foreground/40 font-mono text-[8px]">
+                  <span className="text-muted-foreground font-mono text-[8px]">
                     SCANNING_PROTOCOLS...
                   </span>
                 </div>
@@ -134,11 +133,11 @@ export function TechStack() {
         </AnimatePresence>
 
         <div className="mt-12 flex items-center justify-center">
-          <div className="via-border/40 h-px flex-1 bg-gradient-to-r from-transparent to-transparent" />
-          <div className="text-muted-foreground/40 px-6 font-mono text-[9px] tracking-[0.4em] uppercase antialiased">
+          <div className="bg-border h-0.5 flex-1" />
+          <div className="text-muted-foreground px-6 font-mono text-[9px] tracking-[0.4em] uppercase antialiased">
             End_of_Inventory_Stream
           </div>
-          <div className="via-border/40 h-px flex-1 bg-gradient-to-r from-transparent to-transparent" />
+          <div className="bg-border h-0.5 flex-1" />
         </div>
       </div>
     </section>

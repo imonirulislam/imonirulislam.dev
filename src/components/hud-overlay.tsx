@@ -159,7 +159,7 @@ export function HUDOverlay() {
               onMouseLeave={() => setIsHovered(false)}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="group bg-background/60 border-border/50 hover:bg-background/80 hover:border-primary/50 pointer-events-auto flex flex-col items-start gap-1.5 rounded-sm border p-2 shadow-2xl backdrop-blur-md transition-colors duration-300"
+              className="group bg-background border-border hover:bg-background hover:border-primary pointer-events-auto flex flex-col items-start gap-1.5 rounded-sm border p-2 shadow-2xl transition-colors duration-300"
             >
               {/* Compact View / Header */}
               <motion.div layout className="flex w-full items-center gap-3">
@@ -168,13 +168,11 @@ export function HUDOverlay() {
                   <span className="text-[9px]">GUEST::{guestId}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-                  <span className="text-muted-foreground/60 text-[7px]">
-                    LIVE
-                  </span>
+                  <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+                  <span className="text-muted-foreground text-[7px]">LIVE</span>
                 </div>
                 {!isHovered && (
-                  <ChevronDown className="text-muted-foreground/30 h-3 w-3 animate-bounce" />
+                  <ChevronDown className="text-muted-foreground h-3 w-3 animate-bounce" />
                 )}
               </motion.div>
 
@@ -184,11 +182,11 @@ export function HUDOverlay() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="border-border/30 mt-1 w-full space-y-3 overflow-hidden border-t pt-3"
+                  className="border-border mt-1 w-full space-y-3 overflow-hidden border-t pt-3"
                 >
                   <div className="grid w-full grid-cols-2 gap-x-6 gap-y-2 text-[8px]">
                     <div className="flex flex-col gap-1">
-                      <span className="text-muted-foreground/40 font-bold">
+                      <span className="text-muted-foreground font-bold">
                         AUTHORIZATION
                       </span>
                       <span className="font-bold text-emerald-500">
@@ -196,13 +194,13 @@ export function HUDOverlay() {
                       </span>
                     </div>
                     <div className="flex flex-col gap-1 text-right">
-                      <span className="text-muted-foreground/40 font-bold">
+                      <span className="text-muted-foreground font-bold">
                         SESSION_TOKEN
                       </span>
                       <span className="text-foreground/70">{sessionId}</span>
                     </div>
                     <div className="flex flex-col gap-1">
-                      <span className="text-muted-foreground/40 font-bold">
+                      <span className="text-muted-foreground font-bold">
                         TOTAL_ACCESS
                       </span>
                       <span className="text-foreground/70">
@@ -210,7 +208,7 @@ export function HUDOverlay() {
                       </span>
                     </div>
                     <div className="flex flex-col gap-1 text-right">
-                      <span className="text-muted-foreground/40 font-bold">
+                      <span className="text-muted-foreground font-bold">
                         UPTIME
                       </span>
                       <span className="text-foreground font-bold tracking-tighter">
@@ -219,16 +217,16 @@ export function HUDOverlay() {
                     </div>
                   </div>
 
-                  <div className="border-border/20 flex w-full items-center justify-between border-t pt-2 text-[7px]">
+                  <div className="border-border flex w-full items-center justify-between border-t pt-2 text-[7px]">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="text-primary h-3 w-3" />
-                      <span className="text-muted-foreground/40">
+                      <span className="text-muted-foreground">
                         SYSTEM_STABLE
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Wifi className="text-muted-foreground/40 h-3 w-3" />
-                      <span className="text-muted-foreground/40">RTT:</span>
+                      <Wifi className="text-muted-foreground h-3 w-3" />
+                      <span className="text-muted-foreground">RTT:</span>
                       <motion.span
                         key={latency}
                         animate={{ scale: [1, 1.1, 1] }}
@@ -255,10 +253,10 @@ export function HUDOverlay() {
             exit={{ opacity: 0, x: -20 }}
             className="fixed top-1/2 left-4 hidden -translate-y-1/2 flex-col items-center gap-4 md:left-8 md:flex"
           >
-            <span className="text-muted-foreground/40 rotate-90 text-[8px] font-bold tracking-tighter">
+            <span className="text-muted-foreground rotate-90 text-[8px] font-bold tracking-tighter">
               SCROLL_PROGRESS
             </span>
-            <div className="bg-secondary/20 relative h-32 w-px overflow-hidden">
+            <div className="bg-secondary relative h-32 w-px overflow-hidden">
               <motion.div
                 style={{ scaleY: smoothProgress }}
                 className="from-primary to-primary/40 absolute top-0 w-full origin-top bg-gradient-to-b"
@@ -268,7 +266,7 @@ export function HUDOverlay() {
               <span className="text-primary font-bold">
                 {Math.round(displayProgress * 100)}%
               </span>
-              <span className="text-muted-foreground/40 text-[7px] tracking-tighter">
+              <span className="text-muted-foreground text-[7px] tracking-tighter">
                 /{section}
               </span>
             </div>

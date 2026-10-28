@@ -68,8 +68,8 @@ export function ProjectItem({ project }: { project: Project }) {
           transition={{ duration: 0.2 }}
           className="h-full"
         >
-          <Card className="bg-secondary/10 border-border/50 hover:bg-secondary/20 hover:border-primary/50 group flex h-full cursor-pointer flex-col overflow-hidden border p-0 shadow-none backdrop-blur-sm transition-all duration-300">
-            <div className="border-border/20 relative h-40 overflow-hidden border-b">
+          <Card className="bg-card border-border group brutal-lift flex h-full cursor-pointer flex-col gap-4 overflow-hidden border-2 p-0">
+            <div className="border-border relative h-40 overflow-hidden border-b-2">
               {hasImages ? (
                 <Image
                   src={project.images[0]}
@@ -81,28 +81,27 @@ export function ProjectItem({ project }: { project: Project }) {
               ) : (
                 <ProjectPlaceholder />
               )}
-              <div className="from-background/60 absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
             </div>
 
             <CardHeader className="pb-4">
               <div className="mb-2 flex items-start justify-between gap-4">
-                <CardTitle className="group-hover:text-primary flex-1 font-mono text-lg leading-tight tracking-tight transition-colors">
+                <CardTitle className="flex-1 font-mono text-lg leading-tight tracking-tight transition-colors">
                   {project.title}
                 </CardTitle>
-                <div className="bg-primary/10 text-primary shrink-0 rounded-sm p-1 px-2 font-mono text-[10px] whitespace-nowrap opacity-0 transition-opacity group-hover:opacity-100">
+                <div className="bg-pop-yellow border-border shrink-0 border-2 p-1 px-2 font-mono text-[10px] font-bold whitespace-nowrap text-black opacity-0 transition-opacity group-hover:opacity-100">
                   VIEW_SPECS
                 </div>
               </div>
-              <CardDescription className="text-muted-foreground/80 text-sm leading-relaxed">
+              <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                 {project.description}
               </CardDescription>
             </CardHeader>
             <CardContent className="mt-auto">
-              <div className="border-border/20 flex flex-wrap gap-2 border-t pt-4 pb-4">
+              <div className="border-border flex flex-wrap gap-2 border-t-2 pt-4 pb-4">
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="text-muted-foreground bg-secondary/30 rounded-sm px-2 py-0.5 font-mono text-[10px] uppercase"
+                    className="bg-pop-cyan border-border border px-2 py-0.5 font-mono text-[10px] font-bold text-black uppercase"
                   >
                     {t}
                   </span>
@@ -112,18 +111,18 @@ export function ProjectItem({ project }: { project: Project }) {
           </Card>
         </motion.div>
       </DialogTrigger>
-      <DialogContent className="bg-background/95 border-border/50 max-w-2xl font-mono backdrop-blur-xl md:max-w-4xl">
+      <DialogContent className="bg-background border-border max-w-2xl font-mono md:max-w-4xl">
         <DialogHeader>
           <div className="mb-2 flex items-center gap-2">
             {isDataLoading ? (
-              <Skeleton className="bg-secondary/10 h-9 w-9 rounded-lg" />
+              <Skeleton className="bg-secondary h-9 w-9 rounded-lg" />
             ) : (
               <div className="bg-primary/10 rounded-lg p-2">
                 <Server className="text-primary h-5 w-5" />
               </div>
             )}
             {isDataLoading ? (
-              <Skeleton className="bg-secondary/10 h-3 w-48" />
+              <Skeleton className="bg-secondary h-3 w-48" />
             ) : (
               <span className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
                 DEPLOYMENT_NODE :: {project.category}
@@ -133,14 +132,14 @@ export function ProjectItem({ project }: { project: Project }) {
           <DialogTitle className="flex items-center justify-between gap-3 text-2xl font-bold tracking-tight">
             <div className="flex items-center gap-3">
               {isDataLoading ? (
-                <Skeleton className="bg-secondary/10 h-8 w-48" />
+                <Skeleton className="bg-secondary h-8 w-48" />
               ) : (
                 <>
                   {project.title}
                   {!hasImages && (
                     <Badge
                       variant="outline"
-                      className="bg-primary/10 text-primary border-primary/20 px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-sm"
+                      className="bg-primary/10 text-primary border-primary px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-sm"
                     >
                       DATA_ONLY_MODE
                     </Badge>
@@ -157,7 +156,7 @@ export function ProjectItem({ project }: { project: Project }) {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-secondary hover:bg-secondary/80 border-border/50 flex items-center justify-center gap-2 rounded-md border px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase transition-colors"
+                    className="bg-card border-border shadow-brutal-sm brutal-press flex items-center justify-center gap-2 border-2 px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase"
                   >
                     <SimpleIcon icon={siGithub} className="h-3 w-3" /> Source
                   </a>
@@ -167,7 +166,7 @@ export function ProjectItem({ project }: { project: Project }) {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-[10px] font-bold tracking-widest uppercase transition-colors"
+                    className="bg-pop-yellow border-border shadow-brutal-sm brutal-press flex items-center justify-center gap-2 border-2 px-3 py-1.5 text-[10px] font-bold tracking-widest text-black uppercase"
                   >
                     <Monitor className="h-3 w-3" /> Demo
                   </a>
@@ -188,21 +187,21 @@ export function ProjectItem({ project }: { project: Project }) {
                 className="space-y-8"
               >
                 {hasImages && (
-                  <Skeleton className="bg-secondary/20 h-64 w-full rounded-lg" />
+                  <Skeleton className="bg-secondary h-64 w-full rounded-lg" />
                 )}
                 <div className="space-y-4">
-                  <Skeleton className="bg-secondary/10 h-4 w-full" />
-                  <Skeleton className="bg-secondary/10 h-4 w-5/6" />
-                  <Skeleton className="bg-secondary/10 h-4 w-4/6" />
+                  <Skeleton className="bg-secondary h-4 w-full" />
+                  <Skeleton className="bg-secondary h-4 w-5/6" />
+                  <Skeleton className="bg-secondary h-4 w-4/6" />
                 </div>
 
                 <div className="space-y-4">
-                  <Skeleton className="bg-secondary/10 h-3 w-32" />
+                  <Skeleton className="bg-secondary h-3 w-32" />
                   <div className="grid grid-cols-2 gap-3">
                     {[1, 2, 3, 4].map((i) => (
                       <Skeleton
                         key={i}
-                        className="bg-secondary/10 h-10 rounded-md"
+                        className="bg-secondary h-10 rounded-md"
                       />
                     ))}
                   </div>
@@ -210,30 +209,30 @@ export function ProjectItem({ project }: { project: Project }) {
 
                 {project.logs && project.logs.length > 0 && (
                   <div className="space-y-4">
-                    <Skeleton className="bg-secondary/10 h-3 w-40" />
-                    <div className="bg-secondary/10 space-y-3 rounded-md p-4 opacity-50">
-                      <Skeleton className="bg-secondary/20 h-3 w-full" />
-                      <Skeleton className="bg-secondary/20 h-3 w-5/6" />
-                      <Skeleton className="bg-secondary/20 h-3 w-4/5" />
+                    <Skeleton className="bg-secondary h-3 w-40" />
+                    <div className="bg-secondary space-y-3 rounded-md p-4 opacity-50">
+                      <Skeleton className="bg-secondary h-3 w-full" />
+                      <Skeleton className="bg-secondary h-3 w-5/6" />
+                      <Skeleton className="bg-secondary h-3 w-4/5" />
                     </div>
                   </div>
                 )}
 
                 <div className="space-y-4">
-                  <Skeleton className="bg-secondary/10 h-3 w-36" />
+                  <Skeleton className="bg-secondary h-3 w-36" />
                   <div className="flex flex-wrap gap-2">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Skeleton
                         key={i}
-                        className="bg-secondary/10 h-6 w-16 rounded shadow-sm"
+                        className="bg-secondary h-6 w-16 rounded shadow-sm"
                       />
                     ))}
                   </div>
                 </div>
 
                 <div className="flex gap-4 pt-4">
-                  <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
-                  <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
+                  <Skeleton className="bg-secondary h-10 flex-1 rounded-md" />
+                  <Skeleton className="bg-secondary h-10 flex-1 rounded-md" />
                 </div>
               </motion.div>
             ) : (
@@ -244,7 +243,7 @@ export function ProjectItem({ project }: { project: Project }) {
                 className="space-y-8"
               >
                 {hasImages && (
-                  <div className="border-border/40 group/carousel relative h-64 overflow-hidden rounded-lg border bg-black/40">
+                  <div className="border-border group/carousel relative h-64 overflow-hidden rounded-lg border bg-black/40">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={currentImage}
@@ -269,13 +268,13 @@ export function ProjectItem({ project }: { project: Project }) {
                         <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-4 opacity-0 transition-opacity group-hover/carousel:opacity-100">
                           <button
                             onClick={prevImage}
-                            className="bg-background/80 border-border/50 text-foreground hover:bg-primary hover:text-primary-foreground pointer-events-auto rounded-full border p-2 shadow-lg transition-all"
+                            className="bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground pointer-events-auto rounded-full border p-2 shadow-lg transition-all"
                           >
                             <ChevronLeft className="h-4 w-4" />
                           </button>
                           <button
                             onClick={nextImage}
-                            className="bg-background/80 border-border/50 text-foreground hover:bg-primary hover:text-primary-foreground pointer-events-auto rounded-full border p-2 shadow-lg transition-all"
+                            className="bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground pointer-events-auto rounded-full border p-2 shadow-lg transition-all"
                           >
                             <ChevronRight className="h-4 w-4" />
                           </button>
@@ -283,7 +282,7 @@ export function ProjectItem({ project }: { project: Project }) {
                         <div className="absolute right-4 bottom-4">
                           <Badge
                             variant="outline"
-                            className="bg-background/90 border-primary/40 px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-xl backdrop-blur-md"
+                            className="bg-background border-primary px-2 py-0.5 font-mono text-[9px] tracking-widest shadow-xl"
                           >
                             ASSET_0{currentImage + 1}/0{project.images.length}
                           </Badge>
@@ -294,7 +293,7 @@ export function ProjectItem({ project }: { project: Project }) {
                     <div className="absolute top-4 left-4">
                       <Badge
                         variant="outline"
-                        className="bg-background/80 border-primary/30 text-[10px] backdrop-blur-sm"
+                        className="bg-background border-primary text-[10px]"
                       >
                         ASSET_LOADED
                       </Badge>
@@ -303,7 +302,7 @@ export function ProjectItem({ project }: { project: Project }) {
                 )}
 
                 <div className="space-y-3">
-                  <DialogDescription className="text-muted-foreground/70 text-sm leading-relaxed">
+                  <DialogDescription className="text-muted-foreground text-sm leading-relaxed">
                     {project.longDescription}
                   </DialogDescription>
                   {project.docs && project.docs !== "#" && (
@@ -318,17 +317,17 @@ export function ProjectItem({ project }: { project: Project }) {
                   )}
                 </div>
                 <div className="space-y-4">
-                  <h4 className="text-muted-foreground/50 flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                  <h4 className="text-muted-foreground flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
                     <Terminal className="h-3 w-3" /> System :: Specifications
                   </h4>
                   <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                     {project.specs.map((spec, i) => (
                       <div
                         key={i}
-                        className="bg-secondary/20 border-border/30 flex items-center gap-3 rounded-md border p-3"
+                        className="bg-secondary border-border flex items-center gap-3 rounded-md border p-3"
                       >
                         <div className="bg-primary/60 h-1.5 w-1.5 shrink-0 rounded-full" />
-                        <span className="text-muted-foreground/90 text-xs">
+                        <span className="text-muted-foreground text-xs">
                           {spec}
                         </span>
                       </div>
@@ -338,14 +337,14 @@ export function ProjectItem({ project }: { project: Project }) {
 
                 {project.logs && project.logs.length > 0 && (
                   <div className="space-y-4">
-                    <h4 className="text-muted-foreground/50 flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                    <h4 className="text-muted-foreground flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
                       <Terminal className="h-3 w-3" /> System :: Execution_Log
                     </h4>
-                    <div className="bg-secondary/20 border-border/30 space-y-2 rounded-md border p-4">
+                    <div className="bg-secondary border-border space-y-2 rounded-md border p-4">
                       {project.logs.map((log, i) => (
                         <div
                           key={i}
-                          className="text-muted-foreground/90 flex items-start gap-4 font-mono text-xs"
+                          className="text-muted-foreground flex items-start gap-4 font-mono text-xs"
                         >
                           <span className="text-primary/70 shrink-0 font-bold">
                             [#]
@@ -358,14 +357,14 @@ export function ProjectItem({ project }: { project: Project }) {
                 )}
 
                 <div className="space-y-4">
-                  <h4 className="text-muted-foreground/50 text-[10px] font-bold tracking-widest uppercase">
+                  <h4 className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase">
                     Core :: Technology
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="bg-secondary/40 text-muted-foreground border-border/50 rounded border px-2 py-1 text-[10px] tracking-wider uppercase"
+                        className="bg-secondary text-muted-foreground border-border rounded border px-2 py-1 text-[10px] tracking-wider uppercase"
                       >
                         {t}
                       </span>
@@ -378,11 +377,11 @@ export function ProjectItem({ project }: { project: Project }) {
         </div>
 
         {/* Mobile Footer Buttons */}
-        <div className="border-border/20 flex gap-4 border-t pt-6 md:hidden">
+        <div className="border-border flex gap-4 border-t pt-6 md:hidden">
           {isDataLoading ? (
             <>
-              <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
-              <Skeleton className="bg-secondary/10 h-10 flex-1 rounded-md" />
+              <Skeleton className="bg-secondary h-10 flex-1 rounded-md" />
+              <Skeleton className="bg-secondary h-10 flex-1 rounded-md" />
             </>
           ) : (
             <>
@@ -391,7 +390,7 @@ export function ProjectItem({ project }: { project: Project }) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-secondary hover:bg-secondary/80 border-border/50 flex flex-1 items-center justify-center gap-2 rounded-md border py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
+                  className="bg-secondary hover:bg-secondary border-border flex flex-1 items-center justify-center gap-2 rounded-md border py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors"
                 >
                   <SimpleIcon icon={siGithub} className="h-3.5 w-3.5" />{" "}
                   Source_Code
@@ -411,7 +410,7 @@ export function ProjectItem({ project }: { project: Project }) {
           )}
         </div>
 
-        <div className="text-muted-foreground/40 flex items-center justify-between pt-4 text-[9px] tracking-widest uppercase">
+        <div className="text-muted-foreground flex items-center justify-between pt-4 text-[9px] tracking-widest uppercase">
           <span>Build_Status: Stable</span>
           <span>Environment: Production</span>
         </div>

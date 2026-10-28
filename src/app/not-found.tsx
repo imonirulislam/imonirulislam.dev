@@ -14,7 +14,7 @@ export default function NotFound() {
 
       <div className="z-10 flex max-w-lg flex-col items-center space-y-8 text-center">
         {/* Error Code Block */}
-        <div className="bg-destructive/10 border-destructive/20 relative rounded-lg border p-8 shadow-[0_0_30px_-10px_rgba(239,68,68,0.2)] backdrop-blur-sm">
+        <div className="bg-destructive/10 border-destructive/20 relative rounded-lg border p-8">
           <div className="bg-background absolute -top-3 left-1/2 -translate-x-1/2 px-4">
             <div className="text-destructive flex items-center gap-2 text-sm font-bold tracking-widest uppercase">
               <AlertTriangle className="h-4 w-4" />
@@ -25,7 +25,7 @@ export default function NotFound() {
           <h1 className="from-foreground to-foreground/50 bg-gradient-to-b bg-clip-text text-6xl font-black tracking-tighter text-transparent select-none">
             404
           </h1>
-          <div className="text-muted-foreground/60 mt-2 text-xs tracking-[0.2em] uppercase">
+          <div className="text-muted-foreground mt-2 text-xs tracking-[0.2em] uppercase">
             ERR_MODULE_NOT_FOUND
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function NotFound() {
         {/* Stack Trace Simulation */}
         <div className="w-full space-y-2 text-left">
           <div className="bg-border/50 h-px w-full" />
-          <div className="bg-secondary/10 border-border/30 text-muted-foreground rounded border p-4 font-mono text-[10px]">
+          <div className="bg-secondary border-border text-muted-foreground rounded border p-4 font-mono text-[10px]">
             <p className="text-destructive mb-2 font-bold">
               Error: The requested resource could not be found in the system
               registry.
@@ -52,7 +52,7 @@ export default function NotFound() {
         {/* Action Button */}
         <Link
           href="/"
-          className="group border-primary/50 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground relative inline-flex items-center gap-2 overflow-hidden rounded-md border px-8 py-3 text-xs font-bold tracking-widest uppercase transition-all hover:shadow-[0_0_20px_rgba(var(--primary),0.4)]"
+          className="group border-primary bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground hover: relative inline-flex items-center gap-2 overflow-hidden rounded-md border px-8 py-3 text-xs font-bold tracking-widest uppercase transition-all"
         >
           <MoveLeft className="h-3 w-3 transition-transform group-hover:-translate-x-1" />
           <span>Reboot_System</span>

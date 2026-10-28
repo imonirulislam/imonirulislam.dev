@@ -32,7 +32,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="relative scroll-mt-20 py-24">
-      <div className="from-border/0 via-border to-border/0 absolute top-0 left-1/2 h-24 w-px -translate-x-1/2 bg-gradient-to-b" />
+      <div className="bg-border absolute top-0 left-1/2 h-24 w-0.5 -translate-x-1/2" />
 
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -63,7 +63,7 @@ export function Projects() {
                 className={`border px-3 py-1 font-mono text-[10px] transition-all duration-200 ${
                   filter === cat
                     ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-secondary/20 text-muted-foreground border-border/50 hover:border-primary/50"
+                    : "bg-secondary text-muted-foreground border-border hover:border-primary"
                 }`}
               >
                 {cat.toUpperCase()}
@@ -85,15 +85,15 @@ export function Projects() {
                 {[1, 2, 3, 4, 5, 6].map((i) => (
                   <div
                     key={i}
-                    className="bg-secondary/10 border-border/50 flex flex-col overflow-hidden rounded-lg border p-0"
+                    className="bg-secondary border-border flex flex-col overflow-hidden rounded-lg border p-0"
                   >
-                    <Skeleton className="bg-secondary/10 h-40 w-full" />
+                    <Skeleton className="bg-secondary h-40 w-full" />
                     <div className="space-y-4 p-6">
-                      <Skeleton className="bg-secondary/10 h-6 w-2/3" />
-                      <Skeleton className="bg-secondary/10 h-4 w-full" />
-                      <div className="border-border/20 flex gap-2 border-t pt-4">
-                        <Skeleton className="bg-secondary/10 h-4 w-12" />
-                        <Skeleton className="bg-secondary/10 h-4 w-12" />
+                      <Skeleton className="bg-secondary h-6 w-2/3" />
+                      <Skeleton className="bg-secondary h-4 w-full" />
+                      <div className="border-border flex gap-2 border-t pt-4">
+                        <Skeleton className="bg-secondary h-4 w-12" />
+                        <Skeleton className="bg-secondary h-4 w-12" />
                       </div>
                     </div>
                   </div>
@@ -132,7 +132,7 @@ export function Projects() {
             <Button
               variant="outline"
               onClick={() => setVisibleCount((prev) => prev + 6)}
-              className="bg-background/50 hover:bg-primary/10 hover:text-primary hover:border-primary border-primary/20 text-muted-foreground gap-2 px-8 font-mono text-xs tracking-widest uppercase transition-all"
+              className="bg-background hover:bg-primary/10 hover:text-primary hover:border-primary border-primary text-muted-foreground gap-2 px-8 font-mono text-xs tracking-widest uppercase transition-all"
             >
               <Brackets className="h-4 w-4 rotate-90" />
               Load_More_Nodes

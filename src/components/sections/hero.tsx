@@ -38,27 +38,27 @@ export function Hero() {
               className="grid grid-cols-1 gap-12 lg:grid-cols-12"
             >
               <div className="space-y-6 lg:col-span-7">
-                <Skeleton className="bg-secondary/20 h-4 w-48" />
+                <Skeleton className="bg-secondary h-4 w-48" />
                 <div className="space-y-4">
-                  <Skeleton className="bg-secondary/20 h-16 w-3/4" />
-                  <Skeleton className="bg-secondary/20 h-16 w-1/2" />
+                  <Skeleton className="bg-secondary h-16 w-3/4" />
+                  <Skeleton className="bg-secondary h-16 w-1/2" />
                 </div>
                 <div className="space-y-2">
-                  <Skeleton className="bg-secondary/20 h-6 w-full" />
-                  <Skeleton className="bg-secondary/20 h-6 w-2/3" />
+                  <Skeleton className="bg-secondary h-6 w-full" />
+                  <Skeleton className="bg-secondary h-6 w-2/3" />
                 </div>
                 <div className="space-y-4 py-2">
-                  <Skeleton className="bg-secondary/20 h-12 w-64 rounded-lg" />
-                  <Skeleton className="bg-secondary/20 h-3 w-40" />
+                  <Skeleton className="bg-secondary h-12 w-64 rounded-lg" />
+                  <Skeleton className="bg-secondary h-3 w-40" />
                 </div>
                 <div className="flex gap-4">
                   {[1, 2, 3, 4].map((i) => (
-                    <Skeleton key={i} className="bg-secondary/20 h-10 w-24" />
+                    <Skeleton key={i} className="bg-secondary h-10 w-24" />
                   ))}
                 </div>
               </div>
               <div className="lg:col-span-5">
-                <Skeleton className="bg-secondary/10 h-[400px] w-full rounded-xl" />
+                <Skeleton className="bg-secondary h-[400px] w-full rounded-xl" />
               </div>
             </motion.div>
           ) : (
@@ -71,14 +71,18 @@ export function Hero() {
             >
               <div className="lg:col-span-7">
                 <div className="text-muted-foreground mb-8 flex animate-pulse items-center gap-2 font-mono text-xs tracking-widest uppercase">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
                   System Online :: imonirulislam.dev
                 </div>
-                <h1 className="mb-8 text-4xl leading-tight font-bold tracking-tight md:text-5xl">
+                <h1 className="mb-8 text-4xl leading-[1.05] font-bold tracking-tight md:text-6xl">
                   Architecting{" "}
-                  <span className="text-muted-foreground">reliable</span>{" "}
-                  systems and
-                  <span className="text-muted-foreground"> scalable</span>{" "}
+                  <span className="bg-pop-yellow border-border inline-block -rotate-1 border-2 px-2 text-black">
+                    reliable
+                  </span>{" "}
+                  systems and{" "}
+                  <span className="bg-pop-pink border-border inline-block rotate-1 border-2 px-2 text-black">
+                    scalable
+                  </span>{" "}
                   <br /> infrastructure
                 </h1>
                 <p className="text-muted-foreground mb-10 max-w-xl text-base leading-relaxed md:text-lg">
@@ -89,9 +93,8 @@ export function Hero() {
                 <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Magnetic>
                     <div className="group relative">
-                      <div className="from-primary/50 to-secondary/50 absolute -inset-0.5 animate-pulse rounded-lg bg-gradient-to-r opacity-30 blur transition duration-500 group-hover:opacity-100" />
                       <Button
-                        className="bg-background border-primary/20 hover:bg-primary/5 hover:border-primary/50 text-foreground relative h-12 overflow-hidden rounded-lg border px-8 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.3)]"
+                        className="relative h-12 overflow-hidden px-8 text-xs font-bold tracking-[0.2em] uppercase"
                         asChild
                       >
                         <a
@@ -100,23 +103,18 @@ export function Hero() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-3"
                         >
-                          <div className="bg-secondary/10 absolute inset-0 translate-y-[100%] transition-transform duration-300 group-hover:translate-y-0" />
                           <span className="relative z-10 flex items-center gap-2">
-                            <span className="text-primary group-hover:animate-pulse">
-                              [
-                            </span>
+                            <span>[</span>
                             <Download className="h-4 w-4" />
                             <span>DownLoad_Resume</span>
-                            <span className="text-primary group-hover:animate-pulse">
-                              ]
-                            </span>
+                            <span>]</span>
                           </span>
                         </a>
                       </Button>
                     </div>
                   </Magnetic>
 
-                  <div className="text-muted-foreground/60 flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase">
+                  <div className="text-muted-foreground flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase">
                     <span className="bg-primary/40 h-1.5 w-1.5 animate-pulse rounded-full" />
                     <span>File_Size: 2.4MB</span>
                     <span className="text-border">|</span>
@@ -132,11 +130,9 @@ export function Hero() {
                   ].map((stat) => (
                     <div
                       key={stat.label}
-                      className="bg-secondary/20 border-border/30 rounded-sm border px-3 py-1.5 backdrop-blur-sm"
+                      className="bg-pop-cyan border-border shadow-brutal-sm border-2 px-3 py-1.5 font-bold text-black"
                     >
-                      <span className="text-muted-foreground/60 mr-2">
-                        {stat.label}:
-                      </span>
+                      <span className="mr-2 opacity-60">{stat.label}:</span>
                       {stat.value}
                     </div>
                   ))}
@@ -144,16 +140,14 @@ export function Hero() {
               </div>
 
               <div className="group relative lg:col-span-5">
-                <div className="from-primary/20 to-primary/5 absolute -inset-1 rounded-2xl bg-gradient-to-r opacity-50 blur-xl transition duration-1000 group-hover:opacity-100 group-hover:duration-200" />
-
-                <div className="bg-secondary/10 border-border/50 relative overflow-hidden rounded-xl border shadow-2xl backdrop-blur-xl">
-                  <div className="bg-secondary/20 border-border/30 flex items-center justify-between border-b p-1 px-4">
+                <div className="bg-card border-border shadow-brutal-lg relative overflow-hidden border-2">
+                  <div className="bg-pop-yellow border-border flex items-center justify-between border-b-2 p-1.5 px-4 text-black">
                     <div className="flex gap-1.5">
-                      <div className="h-2 w-2 rounded-full bg-red-500/30" />
-                      <div className="h-2 w-2 rounded-full bg-yellow-500/30" />
-                      <div className="h-2 w-2 rounded-full bg-emerald-500/30" />
+                      <div className="border-border h-3 w-3 rounded-full border-2 bg-red-500" />
+                      <div className="border-border h-3 w-3 rounded-full border-2 bg-yellow-400" />
+                      <div className="border-border h-3 w-3 rounded-full border-2 bg-emerald-500" />
                     </div>
-                    <div className="text-muted-foreground/60 flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase">
+                    <div className="flex items-center gap-2 font-mono text-[10px] font-bold tracking-widest uppercase">
                       <Terminal className="h-3 w-3" /> identity_report.sh
                     </div>
                   </div>
@@ -161,10 +155,9 @@ export function Hero() {
                   <div className="space-y-8 p-8">
                     <div className="flex items-start gap-6">
                       <div className="relative shrink-0">
-                        <div className="bg-secondary/40 border-border/50 group/avatar relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-lg border">
+                        <div className="bg-pop-lime border-border shadow-brutal group/avatar relative flex h-24 w-24 items-center justify-center overflow-hidden border-2">
                           <div className="grid-pattern absolute inset-0 opacity-30" />
-                          <div className="via-primary/5 to-primary/10 absolute inset-0 bg-gradient-to-b from-transparent" />
-                          <span className="text-muted-foreground/30 font-mono text-3xl font-bold transition-transform duration-500 group-hover/avatar:scale-110">
+                          <span className="font-mono text-3xl font-bold text-black transition-transform duration-500 group-hover/avatar:scale-110">
                             MI
                           </span>
                           <motion.div
@@ -174,11 +167,11 @@ export function Hero() {
                               repeat: Infinity,
                               ease: "linear",
                             }}
-                            className="bg-primary/40 absolute right-0 left-0 z-10 h-px shadow-[0_0_10px_rgba(var(--primary),0.5)]"
+                            className="absolute right-0 left-0 z-10 h-0.5 bg-black"
                           />
                         </div>
-                        <div className="bg-background border-border/50 absolute -right-2 -bottom-2 rounded-md border p-1.5 shadow-lg">
-                          <ShieldCheck className="text-primary h-4 w-4" />
+                        <div className="bg-pop-pink border-border absolute -right-2 -bottom-2 border-2 p-1.5 text-black">
+                          <ShieldCheck className="h-4 w-4" />
                         </div>
                       </div>
                       <div className="space-y-1">
@@ -199,10 +192,10 @@ export function Hero() {
                       </div>
                     </div>
 
-                    <div className="border-border/20 space-y-4 border-t pt-4">
+                    <div className="border-border space-y-4 border-t-2 pt-4">
                       <div className="group/item flex items-center gap-4">
-                        <div className="bg-secondary/20 border-border/30 group-hover/item:border-primary/30 rounded-md border p-2 transition-colors">
-                          <Briefcase className="text-muted-foreground group-hover/item:text-primary h-4 w-4 transition-colors" />
+                        <div className="bg-card border-border shadow-brutal-sm group-hover/item:bg-pop-yellow border-2 p-2 transition-colors">
+                          <Briefcase className="h-4 w-4 transition-colors group-hover/item:text-black" />
                         </div>
                         <div>
                           <p className="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
@@ -214,8 +207,8 @@ export function Hero() {
                         </div>
                       </div>
                       <div className="group/item flex items-center gap-4">
-                        <div className="bg-secondary/20 border-border/30 group-hover/item:border-primary/30 rounded-md border p-2 transition-colors">
-                          <Building className="text-muted-foreground group-hover/item:text-primary h-4 w-4 transition-colors" />
+                        <div className="bg-card border-border shadow-brutal-sm group-hover/item:bg-pop-yellow border-2 p-2 transition-colors">
+                          <Building className="h-4 w-4 transition-colors group-hover/item:text-black" />
                         </div>
                         <div>
                           <p className="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
@@ -227,8 +220,8 @@ export function Hero() {
                         </div>
                       </div>
                       <div className="group/item flex items-center gap-4">
-                        <div className="bg-secondary/20 border-border/30 group-hover/item:border-primary/30 rounded-md border p-2 transition-colors">
-                          <MapPin className="text-muted-foreground group-hover/item:text-primary h-4 w-4 transition-colors" />
+                        <div className="bg-card border-border shadow-brutal-sm group-hover/item:bg-pop-yellow border-2 p-2 transition-colors">
+                          <MapPin className="h-4 w-4 transition-colors group-hover/item:text-black" />
                         </div>
                         <div>
                           <p className="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
@@ -242,8 +235,8 @@ export function Hero() {
                     </div>
                   </div>
 
-                  <div className="bg-secondary/30 border-border/30 flex items-center justify-between border-t p-4 px-6">
-                    <div className="text-muted-foreground/60 font-mono text-[9px] tracking-widest uppercase">
+                  <div className="bg-muted border-border flex items-center justify-between border-t-2 p-4 px-6">
+                    <div className="text-muted-foreground font-mono text-[9px] tracking-widest uppercase">
                       Social_Interfaces:
                     </div>
                     <div className="flex gap-4">
@@ -251,7 +244,7 @@ export function Hero() {
                         <a
                           href="https://github.com/imonirulislam"
                           target="_blank"
-                          className="hover:text-primary group/social p-1.5 transition-colors"
+                          className="bg-card border-border shadow-brutal-sm brutal-press group/social block border-2 p-1.5"
                           title="GITHUB"
                         >
                           <SimpleIcon
@@ -263,7 +256,7 @@ export function Hero() {
                       <Magnetic>
                         <a
                           href="#"
-                          className="hover:text-primary group/social p-1.5 transition-colors"
+                          className="bg-card border-border shadow-brutal-sm brutal-press group/social block border-2 p-1.5"
                           title="LINKEDIN"
                         >
                           <FaLinkedin className="h-4 w-4 transition-transform group-hover/social:scale-110" />
@@ -272,7 +265,7 @@ export function Hero() {
                       <Magnetic>
                         <a
                           href="#"
-                          className="hover:text-primary group/social p-1.5 transition-colors"
+                          className="bg-card border-border shadow-brutal-sm brutal-press group/social block border-2 p-1.5"
                           title="X"
                         >
                           <SimpleIcon

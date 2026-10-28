@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GlobalEffects } from "@/components/global-effects";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -84,16 +85,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} selection:bg-primary selection:text-primary-foreground relative antialiased md:cursor-none`}
+        className={`${spaceGrotesk.variable} ${spaceMono.variable} selection:bg-pop-yellow relative antialiased selection:text-black`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
           <GlobalEffects />
-          <div className="grid-pattern pointer-events-none fixed inset-0 -z-10 opacity-[0.4]" />
+          <div className="grid-pattern pointer-events-none fixed inset-0 -z-10 opacity-[0.15]" />
           <div className="relative flex min-h-screen flex-col">{children}</div>
         </ThemeProvider>
       </body>

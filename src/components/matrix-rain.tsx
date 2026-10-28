@@ -105,7 +105,7 @@ export function MatrixRain() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 2, times: [0, 0.1, 1], repeat: 3 }}
-            className="border-primary text-primary border-2 bg-black/80 px-8 py-4 font-mono text-xl font-bold tracking-[0.5em] uppercase backdrop-blur-xl"
+            className="border-primary text-primary border-2 bg-black/80 px-8 py-4 font-mono text-xl font-bold tracking-[0.5em] uppercase"
           >
             Protocol_Override_Active
           </motion.div>

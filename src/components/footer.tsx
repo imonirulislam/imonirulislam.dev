@@ -26,10 +26,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-secondary/10 border-border/20 relative overflow-hidden border-t pt-12 pb-12 backdrop-blur-sm md:pb-24">
-      {/* Subtle gradient glow */}
-      <div className="bg-primary/5 pointer-events-none absolute -bottom-24 left-1/2 h-[200px] w-[500px] -translate-x-1/2 blur-[100px]" />
-
+    <footer className="bg-pop-yellow border-border relative overflow-hidden border-t-2 pt-12 pb-12 text-black [--border:oklch(0.15_0_0)] [--foreground:oklch(0.15_0_0)] [--muted-foreground:oklch(0.32_0_0)] [--primary:oklch(0.45_0.25_264)] md:pb-24">
       <div className="relative z-10 container mx-auto max-w-5xl px-4">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="space-y-4">
@@ -39,7 +36,7 @@ export function Footer() {
                 NODE_STATUS: OPERATIONAL
               </span>
             </div>
-            <p className="text-muted-foreground/70 text-xs leading-relaxed">
+            <p className="text-muted-foreground text-xs leading-relaxed">
               A highly available personal nodespace dedicated to systems
               engineering, infrastructure architecture, and scalable backends.
             </p>
@@ -48,7 +45,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-4">
             {stats.map((stat) => (
               <div key={stat.label} className="space-y-1">
-                <p className="text-muted-foreground/50 font-mono text-[9px] tracking-tighter uppercase">
+                <p className="text-muted-foreground font-mono text-[9px] tracking-tighter uppercase">
                   {stat.label}
                 </p>
                 <p className="text-muted-foreground font-mono text-[11px] font-bold">
@@ -78,14 +75,14 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <p className="text-muted-foreground/40 font-mono text-[10px]">
+            <p className="text-muted-foreground font-mono text-[10px]">
               VER :: 2.4.0-STABLE-{new Date().getFullYear()}
             </p>
           </div>
         </div>
 
-        <div className="border-border/10 flex items-center justify-between border-t pt-8">
-          <p className="text-muted-foreground/30 font-mono text-[10px] tracking-[0.3em] uppercase">
+        <div className="border-border flex items-center justify-between border-t pt-8">
+          <p className="text-muted-foreground font-mono text-[10px] tracking-[0.3em] uppercase">
             © Monirul Islam // ROOT_ACCESS_GRANTED
           </p>
         </div>

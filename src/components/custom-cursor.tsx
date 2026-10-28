@@ -56,7 +56,7 @@ export function CustomCursor() {
               height: isHovered ? 40 : 24,
               rotate: isHovered ? 90 : 0,
             }}
-            className="border-primary/50 relative rounded-full border border-dashed"
+            className="border-primary relative rounded-full border border-dashed"
           />
 
           <div className="bg-primary absolute h-1.5 w-1.5 rounded-full" />
