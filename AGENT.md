@@ -3,7 +3,7 @@
 ## Project Overview
 
 **Name**: imonirulislam.dev
-**Description**: A personal portfolio engineered with a server console / system HUD aesthetic. Features an immersive, high-tech interface with real-time telemetry, biometric authorization, and terminal-style navigation.
+**Description**: A personal portfolio with a neo-brutalist terminal aesthetic: flat pop colors, thick ink borders and hard offset shadows, with real-time telemetry and terminal-style navigation. See `DESIGN.md`.
 **Version**: 2.0.0
 
 ## Tech Stack
@@ -19,12 +19,11 @@
 
 ## Key Architecture & Components
 
-- `src/components/global-effects.tsx`: Central client-side wrapper for HUD, matrix effects, and custom cursor.
+- `src/components/global-effects.tsx`: Central client-side wrapper for HUD, matrix effects, and the command palette.
 - `src/components/hud-overlay.tsx`: Core "System HUD" implementing scroll tracking, identity management, and real-time RTT telemetry.
-- `src/components/preloader.tsx`: Interactive biometric authorization sequence.
+- `src/components/preloader.tsx`: Brutalist `boot.sh` boot sequence shown before the page renders.
 - `src/components/command-palette.tsx`: Terminal-style navigation and system commands (Cmd+K).
 - `src/components/matrix-rain.tsx`: Full-screen digital rain Easter Egg.
-- `src/components/custom-cursor.tsx`: Technical crosshair cursor with real-time coordinate tracking.
 
 ## Development Workflow
 
